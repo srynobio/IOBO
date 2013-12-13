@@ -1,0 +1,111 @@
+<div id="main_input" align="left">
+	<br>
+	<!-- Area for the main form -->
+	<form id="update_node_info" action="[% update_node_term %]" method="POST">
+	    <h2>Update Term (Node)</h2>
+	
+            Image Name:* <br>
+	        <input type="text" name="image_gene" required>
+	
+            Hugo Gene*:<br>
+	        <input type="text" name="hugo_gene">
+
+	        Complex Name:<br>
+	        <input type="text" name="complex_name">
+		<br>
+
+		Genetic Alterations:
+		<select name="genetic_alterations" id="select_box">
+			<option value=""></option>
+			<option value="point_mutation">point mutation</option>
+			<option value="amplification">amplification</option>
+			<option value="translocation">translocation</option>
+			<option value="deletion">deletion</option>
+			<option value="viral_infection">viral infection</option>
+			<option value="increased_expression">increased expression</option>
+		</select>
+		<br>
+
+	        Conferred Capabilites:
+		<select name="conferred_capabilities" id="select_box">
+			<option value=""></option>
+			<option value="evading_apoptosis">Evading apoptosis</option>
+			<option value="self_sufficiency_in_growth_signals">Self-sufficiency in growth signals</option>
+			<option value="insensitivity_to_anti_growth_signals">Insensitivity to anti-growth signals</option>
+			<option value="tissue_invasion_and_metastasis">Tissue invasion and metastasis</option>
+			<option value="limitless_replication_potential">Limitless replication potential</option>
+			<option value="sustained_angiogenesis">Sustained angiogenesis</option>
+		</select>
+		<br>
+		
+		Mutation Type:
+		<select name="mutation_type" id="select_box">
+			<option value=""></option>
+			<option value="oncogene">Oncogene</option>
+			<option value="tumor_suppressor">Tumor Suppressor</option>
+		</select>
+		<br>
+		
+	        Pathway:
+		<select name"pathway" id="select_box">
+			<option value=""></option>
+			<option value="autophagy">Autophagy</option>
+			<option value="akt_signaling">AKt signaling</option>
+			<option value="warburg_effect">Warburg Effect</option>
+			<option value="death_receptor/NFkB_signaling">Death receptor/NFkB signaling</option>
+			<option value="notch_signaling">Notch signaling</option>
+			<option value="hedgehog_signaling">Hedgehog signaling</option>
+			<option value="epigenetic_signaling">Epigenetic signaling</option>
+			<option value="ras_signaling">Ras signaling</option>
+			<option value="gpcr_signaling">GPCR signaling</option>
+			<option value="wnt_signaling">Wnt signaling</option>
+			<option value="hippo_signaling">Hippo signaling</option>
+			<option value="tgfb_signaling">TGFb signaling</option>
+		</select>
+		<br>
+
+	        Location[s]:
+   	     	<textarea name="location" id="box2" tabindex="10"></textarea>
+   	     	<br>
+	
+	     <h2>Relationships (Edge):</h2>
+             Example:<br>
+	     transcriptional_contributor : gene
+	     
+	     
+	     <textarea name="relationships" id="box" tabindex="10" ></textarea>
+	     <br>
+	     
+	     <h2>Complexes_with:</h2>
+	     Example:<br>
+	     gene1<br> 
+	     gene2
+	     <textarea name="complexes_with" id="box" tabindex="10" ></textarea>
+	     <br>
+	     
+   	     <h2>Definition:</h2>
+   	     <textarea name="definition" id="box" tabindex="10" ></textarea>
+   	     <br>
+             
+	     Dbxref:<br>
+             <input type="text" name="dbxref">
+	     <br>
+	     
+	     <input type="submit" value="Update">
+	</form>
+</div>
+
+<div id="relationship_select" align="left">
+	is_a relationship selections:
+	      <ul>
+	        <li id="direct_stimulatory_modifier">direct_stimulatory_modifier</li>
+	        <li id="direct_inhibitory_modifier">direct_inhibitory_modifier</li>
+	        <li id="multistep_stimulatory_modifier">multistep_stimulatory_modifier</li>
+		<li id="tentative_stimulatory_modifier">tentative_stimulatory_modifier</li>
+		<li id="transcriptional_contributor">transcriptional_contributor</li>
+	      </ul>
+ 
+</div>
+
+<br>
+<br>

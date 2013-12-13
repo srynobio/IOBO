@@ -1,0 +1,14 @@
+<div id="delete" class="center">
+	<br>
+	<form id="delete_node_info" action="[% delete_node_term %]" method="POST">
+	    <h2>Delete Term (Node)</h2>
+	
+	        Image Name:<br>
+	        <input type="text" name="image_gene" required>
+
+		<br>
+
+		<input type="submit" value="Submit">
+	</form>	
+</div>
+

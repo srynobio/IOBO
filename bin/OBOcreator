@@ -1,0 +1,135 @@
+#!/usr/bin/perl;
+use strict;
+use warnings;
+use DBI;
+use IO::File;
+use Data::Dumper;
+
+
+# connection information
+my $dbfile = $ARGV[0] or die;
+my $dbh = DBI->connect("dbi:SQLite:dbname=$dbfile","","");
+
+my $obo_genes = db_fetch($dbh);
+print Dumper($obo_genes);
+#create_obo($obo_rel);
+
+##-------------------------------------------------------------------------------------##
+
+sub db_fetch {
+
+  my $dbh = shift;
+
+  # collect gene information
+  my $sth_gene = $dbh->prepare("select * from gene_info");
+  $sth_gene->execute;
+
+  my %obo;
+  while ( my $generef = $sth_gene->fetchrow_hashref ){
+      #$obo{$generef->{'hugo_gene'}} = $generef;
+    $obo{$generef->{'image_gene'}} = $generef;
+  }
+
+  # add all relationship information
+  my $sth_relation = $dbh->prepare
+    ("select * from gene_info, relationships where gene_info.id = relationships.subject");
+  $sth_relation->execute;
+
+  while ( my $relref = $sth_relation->fetchrow_hashref ){
+      #my $gene = $relref->{'hugo_gene'};
+    my $gene = $relref->{'image_gene'};
+
+    # clean up added newlines, etc.
+    $relref->{'object'} =~ s/\s+//g;
+
+    $obo{$gene}{'edge'}{$relref->{'object'}} = $relref->{'predicate'};
+  }
+  return \%obo;
+}
+
+##-------------------------------------------------------------------------------------##
+
+sub create_obo {
+
+  my $obo = shift;
+  my %obo = %$obo;
+
+  my $OF = IO::File->new("tmp_term.obo", 'w');
+
+  # get total number of terms to start typedef after
+ # my $term_count = scalar keys %obo;
+
+
+
+  my $id = "0000000";
+
+  my %test;
+  while ( my ($name, $data) = each %obo ){
+
+ if ( $data->{'relationships'} ) {
+   foreach my $triple ( @{$data->{'relationships'}} ) {
+       #$test{$data->{'hugo_gene'}}{$triple->{'object'}} = $triple->{'predicate'};
+     $test{$data->{'image_gene'}}{$triple->{'object'}} = $triple->{'predicate'};
+   }
+ }
+
+ print Dumper(%test);
+
+
+
+#    print $OF "[TERM]\n";
+#    print $OF "id: CO:" . ++$id, "\n";
+#    print $OF "name: $data->{'hugo_gene'} \n";
+#    print $OF "def: \"$data->{'definition'}\"" . "[CO:IOBO]", "\n" if $data->{'definition'};
+#    print $OF "synonym: $name\n";
+#
+
+    #relationship_build($data);
+
+  }
+
+
+
+
+
+
+
+}
+
+##-------------------------------------------------------------------------------------##
+
+sub relationship_build {
+  my ($dh, $term_count) = @_;
+
+#  my $TF = IO::File->new("tmp_type.obo", 'w');
+
+  if ( $dh->{'relationships'} ) {
+    foreach my $triple ( @{$dh->{'relationships'}} ) {
+#      print $TF "[]
+
+    }
+  }
+
+
+
+}
+
+##-------------------------------------------------------------------------------------##
+
+#print Dumper($obo_rel);
+
+__DATA__
+id : auto increment
+Term : Hugo name
+def : definition
+synonym : image_gene
+relationships : is_a, etc
+
+
+
+
+
+
+
+
+

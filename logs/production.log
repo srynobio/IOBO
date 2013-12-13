@@ -1,0 +1,7 @@
+[9227] error @0.053124> [hit #1]request to POST /node_upload crashed: Can't use an undefined value as an ARRAY reference at /usr/local/share/perl5/Dancer/Plugin/Database/Core/Handle.pm line 356. in /usr/local/share/perl5/Dancer/Handler.pm l. 98
+[9424] error @0.010345> [hit #1]request to POST /node_upload crashed: Can't use an undefined value as an ARRAY reference at /usr/local/share/perl5/Dancer/Plugin/Database/Core/Handle.pm line 356. in /usr/local/share/perl5/Dancer/Handler.pm l. 98
+[9671] error @0.001320> [hit #1]No DB settings for IOBO.sqlite in /usr/local/share/perl5/Dancer/Plugin/Database.pm l. 28
+[9671] error @0.008665> [hit #1]No DB settings for IOBO.sqlite in /usr/local/share/perl5/Dancer/Plugin/Database.pm l. 28
+[9671] error @0.010281> [hit #1]request to POST /node_upload crashed: Can't use an undefined value as an ARRAY reference at /usr/local/share/perl5/Dancer/Plugin/Database/Core/Handle.pm line 356. in /usr/local/share/perl5/Dancer/Handler.pm l. 98
+[9778] error @0.006426> [hit #1]request to POST /node_upload crashed: Can't use an undefined value as an ARRAY reference at /usr/local/share/perl5/Dancer/Plugin/Database/Core/Handle.pm line 356. in /usr/local/share/perl5/Dancer/Handler.pm l. 98
+[9814] error @0.010080> [hit #1]request to POST /node_upload crashed: Can't use an undefined value as an ARRAY reference at /usr/local/share/perl5/Dancer/Plugin/Database/Core/Handle.pm line 356. in /usr/local/share/perl5/Dancer/Handler.pm l. 98
