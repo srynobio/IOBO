@@ -247,7 +247,7 @@ sub dups_check {
 
 sub json_writer {
 
-    my $JFH = IO::File->new( '../public/iobo.json', 'w' );
+    my $JFH = IO::File->new( '../public/json/iobo.json', 'w' );
 
     my @genes     = database->quick_select( 'gene_info',     {} );
     my @relations = database->quick_select( 'relationships', {} );

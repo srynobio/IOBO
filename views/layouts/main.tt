@@ -64,7 +64,7 @@
 	    	  .append("g")
 	    	    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-	    	d3.json("iobo.json", function(error, flare) {
+	    	d3.json("json/iobo.json", function(error, flare) {
 	    	  flare.x0 = 0;
 	    	  flare.y0 = 0;
 	    	  update(root = flare);

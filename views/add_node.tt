@@ -87,6 +87,8 @@
 		<br>
 
 	        Location[s]:
+		Example:<br>
+		Cell, Cell Wall
    	     	<textarea name="location" id="box2" tabindex="10"></textarea>
    	     	<br>
 	
