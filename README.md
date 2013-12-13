@@ -12,10 +12,10 @@ into a transversable ontology.
 
 <h2>Requirements</h2>
 
-<a href="http://www.perldancer.org" target="_blank">Dancer</a>
-<a href="https://metacpan.org/pod/Dancer::Plugin::Database" target="_blank">Dancer::Plugin::Database</a>
-<a href="https://metacpan.org/pod/Template" target="_blank">Template</a>
-<a href="https://metacpan.org/pod/JSON" target="_blank">JSON</a>
+<a href="http://www.perldancer.org" target="_blank">Dancer</a><br>
+<a href="https://metacpan.org/pod/Dancer::Plugin::Database" target="_blank">Dancer::Plugin::Database</a><br>
+<a href="https://metacpan.org/pod/Template" target="_blank">Template</a><br>
+<a href="https://metacpan.org/pod/JSON" target="_blank">JSON</a><br>
 
 SQlite3
 
