@@ -2,7 +2,7 @@
 
 <h2>Introduction</h2>
 
-IOBO is a Image (poster) to ontology creator.  It uses <a href="http://www.perldancer.org" target="_blank">Dancer</a>
+IOBO is a Image (poster, etc) to ontology creator.  It uses <a href="http://www.perldancer.org" target="_blank">Dancer</a>
 and sqlite3 to collect all relationships, and if desired, produces a OBO file useful for a number of downstream
 applications.
 
@@ -15,7 +15,7 @@ into a transversable ontology.
 <a href="http://www.perldancer.org" target="_blank">Dancer</a><br>
 <a href="https://metacpan.org/pod/Dancer::Plugin::Database" target="_blank">Dancer::Plugin::Database</a><br>
 <a href="https://metacpan.org/pod/Template" target="_blank">Template</a><br>
-<a href="https://metacpan.org/pod/JSON" target="_blank">JSON</a><br>
+<a href="https://metacpan.org/pod/JSON::XS" target="_blank">JSON::XS</a><br>
 
 SQlite3
 

@@ -2,12 +2,13 @@ package IOBO;
 use Dancer ':syntax';
 use Dancer::Plugin::Database;
 use Template;
-use JSON;
+use JSON::XS;
 
 our $VERSION = '0.0.1';
 
 #---------------------------
 # hooks
+#---------------------------
 
 hook 'before_template_render' => sub {
     my $tokens = shift;
@@ -17,9 +18,10 @@ hook 'before_template_render' => sub {
 
 #---------------------------
 # Dancer routes
+#---------------------------
 
 get '/' => sub {
-    template 'index';
+    redirect '/add_node';
 };
 
 #---------------------------
@@ -86,6 +88,7 @@ post '/node_remove' => sub {
 
 #---------------------------
 # IOBO subs
+#---------------------------
 
 sub node_remove {
 
@@ -277,6 +280,7 @@ sub json_writer {
     print $JFH $flare;
     $JFH->close;
 
+    return;
 }
 
 #---------------------------
