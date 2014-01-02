@@ -18,7 +18,9 @@
     <body>	
 	    [% content %]
 	    <div id="gene_select" align="left">
-	    	<style>
+            <!-- http://bl.ocks.org/mbostock/1093025 -->
+
+            <style>
 
 	    	.node rect {
 	    	  cursor: pointer;
@@ -44,7 +46,7 @@
 	    	<script src="http://d3js.org/d3.v3.min.js"></script>
 	    	<script>
 
-	    	var margin = {top: 50, right: 100, bottom: 30, left: 50 },
+	    	var margin = {top: 50, right: 100, bottom: 30, left: 100 },
 	    	    width = 500 - margin.left - margin.right,
 	    	    barHeight = 20,
 	    	    barWidth = width * .9;

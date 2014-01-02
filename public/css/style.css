@@ -32,8 +32,7 @@ h1 {
 }
 
 #add_node_info {
-    float : left;
-    left:500px;
+    left: 40%;
     background: -webkit-gradient(linear, bottom, left 175px, from(#CCCCCC), to(#EEEEEE));
     background: -moz-linear-gradient(bottom, #CCCCCC, #EEEEEE 175px);
     background-color: #F0FFFF;
@@ -41,7 +40,7 @@ h1 {
     margin-top:auto;
     position:absolute;
     width:410px;
-    height:1270px;
+    height:1470px;
     font-family: Tahoma, Geneva, sans-serif;
     font-size: 12px;
     line-height: 24px;
@@ -63,16 +62,15 @@ h1 {
 }
 
 #update_node_info {
-    float : left;
-    left:500px;
+    left: 40%;
     background: -webkit-gradient(linear, bottom, left 175px, from(#CCCCCC), to(#EEEEEE));
     background: -moz-linear-gradient(bottom, #CCCCCC, #EEEEEE 175px);
     background-color: #C9E5FF;
-    margin:auto;
+	margin:auto;
     margin-top:auto;
     position:absolute;
     width:410px;
-    height:1270px;
+    height:1470px;
     font-family: Tahoma, Geneva, sans-serif;
     font-size: 12px;
     line-height: 24px;
@@ -90,8 +88,7 @@ h1 {
 }
 
 #delete_node_info {
-	float : left;
-	left:500px;
+    left: 40%;
     background: -webkit-gradient(linear, bottom, left 175px, from(#CCCCCC), to(#EEEEEE));
     background: -moz-linear-gradient(bottom, #CCCCCC, #EEEEEE 175px);
 	background-color: #F0FFFF;
@@ -201,3 +198,8 @@ textarea#box2 {
    width: 1000px;
    margin:auto;
 }
+
+#wrap {
+    min-width: 200px;
+}
+

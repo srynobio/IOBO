@@ -71,13 +71,19 @@
    	     	<br>
 	
 	     <h2>Relationships (Edge):</h2>
-	     Updating will only add terms.<br>
-             Example:<br>
-	     transcriptional_contributor : gene
-	     
-	     
-	     <textarea name="relationships" id="box" tabindex="10" ></textarea>
-	     <br>
+	     is_a relationship selections: 
+         Updating will only add terms.<br>
+        <ul>
+            <li id="direct_stimulatory_modifier">direct_stimulatory_modifier</li>
+            <li id="direct_inhibitory_modifier">direct_inhibitory_modifier</li>
+            <li id="multistep_stimulatory_modifier">multistep_stimulatory_modifier</li>
+            <li id="tentative_stimulatory_modifier">tentative_stimulatory_modifier</li>
+            <li id="transcriptional_contributor">transcriptional_contributor</li>
+        </ul>
+        Example:<br>
+        transcriptional_contributor : gene
+        <textarea name="relationships" id="box" tabindex="10" ></textarea>
+        <br>
 	     
 	     <h2>Complexes_with:</h2>
 	     Example:<br>
@@ -97,18 +103,5 @@
 	     <input type="submit" value="Update">
 	</form>
 </div>
-
-<div id="relationship_select" align="left">
-	is_a relationship selections:
-	      <ul>
-	        <li id="direct_stimulatory_modifier">direct_stimulatory_modifier</li>
-	        <li id="direct_inhibitory_modifier">direct_inhibitory_modifier</li>
-	        <li id="multistep_stimulatory_modifier">multistep_stimulatory_modifier</li>
-		<li id="tentative_stimulatory_modifier">tentative_stimulatory_modifier</li>
-		<li id="transcriptional_contributor">transcriptional_contributor</li>
-	      </ul>
- 
-</div>
-
 <br>
 <br>
