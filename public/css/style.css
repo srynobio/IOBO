@@ -1,205 +1,288 @@
-body {
-	margin: 0;
-	margin-bottom: 25px;
-	padding: 0;
-	background-color: #F0FFFF;
-	background-image: url("/images/connect.png");
-	background-repeat: repeat;
-	background-position: top left;
-	font-family: "Lucida Grande", "Bitstream Vera Sans", "Verdana";
-	font-size: 13px;
-	color: #333;
+body
+{
+  background-color:#F0FFFF;
+  background-image:url(/images/connect.png);
+  background-repeat:repeat;
+  background-position:top left;
+  font-family:"Lucida Grande", "Bitstream Vera Sans", Verdana;
+  font-size:13px;
+  color:#333;
+  margin:0 0 25px;
+  padding:0;
 }
 
-input    {
-	width:400px;
-	display:block;
-	border: 1px solid #999;
-	font-size : 14px;
-	height: 25px;
-	-webkit-box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
-	-moz-box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
-	box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
+input[type="text"]
+{
+  width:400px;
+  display:block;
+  border:1px solid #999;
+  font-size:14px;
+  height:25px;
+  -webkit-box-shadow:0 0 8px rgba(0,0,0,0.3);
+  -moz-box-shadow:0 0 8px rgba(0,0,0,0.3);
+  box-shadow:0 0 8px rgba(0,0,0,0.3);
 }
 
-h1 {
-    margin: 20;
-    font-size: 40px;
-    font-style: bold;
-    line-height: 24px;
-    font-weight: bold;
-    color: #09C
+h1
+{
+  font-size:40px;
+  font-style:bold;
+  line-height:24px;
+  font-weight:700;
+  color:#09C;
+  margin:20px;
 }
 
-#add_node_info {
-    left: 40%;
-    background: -webkit-gradient(linear, bottom, left 175px, from(#CCCCCC), to(#EEEEEE));
-    background: -moz-linear-gradient(bottom, #CCCCCC, #EEEEEE 175px);
-    background-color: #F0FFFF;
-	margin:auto;
-    margin-top:auto;
-    position:absolute;
-    width:410px;
-    height:1470px;
-    font-family: Tahoma, Geneva, sans-serif;
-    font-size: 12px;
-    line-height: 24px;
-    font-weight: bold;
-    text-decoration: none;
-    -webkit-border-radius: 10px;
-    -moz-border-radius: 10px;
-    border-radius: 10px;
-    padding:10px;
-    border: 5px solid #999;
-    border: inset 1px solid #333;
-    -webkit-box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
-    -moz-box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
-    box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.3);
+#add_node_info
+{
+  background:0;
+  background-color:#F0FFFF;
+  width:410px;
+  height:1470px;
+  font-family:Tahoma, Geneva, sans-serif;
+  font-size:12px;
+  line-height:24px;
+  font-weight:700;
+  text-decoration:none;
+  -webkit-border-radius:10px;
+  -moz-border-radius:10px;
+  border-radius:10px;
+  border:inset 1px solid #333;
+  -webkit-box-shadow:0 0 8px rgba(0,0,0,0.3);
+  -moz-box-shadow:0 0 8px rgba(0,0,0,0.3);
+  box-shadow:0 0 1px rgba(0,0,0,0.3);
+  margin:auto;
+  padding:10px;
 }
 
-#main_input {
-	position:relative;
+#update_node_info
+{
+  left:40%;
+  background:0;
+  background-color:#C9E5FF;
+  width:410px;
+  height:1870px;
+  font-family:Tahoma, Geneva, sans-serif;
+  font-size:12px;
+  line-height:24px;
+  font-weight:700;
+  text-decoration:none;
+  -webkit-border-radius:10px;
+  -moz-border-radius:10px;
+  border-radius:10px;
+  border:inset 1px solid #333;
+  -webkit-box-shadow:0 0 8px rgba(0,0,0,0.3);
+  -moz-box-shadow:0 0 8px rgba(0,0,0,0.3);
+  box-shadow:0 0 1px rgba(0,0,0,0.3);
+  margin:auto;
+  padding:10px;
 }
 
-#update_node_info {
-    left: 40%;
-    background: -webkit-gradient(linear, bottom, left 175px, from(#CCCCCC), to(#EEEEEE));
-    background: -moz-linear-gradient(bottom, #CCCCCC, #EEEEEE 175px);
-    background-color: #C9E5FF;
-	margin:auto;
-    margin-top:auto;
-    position:absolute;
-    width:410px;
-    height:1470px;
-    font-family: Tahoma, Geneva, sans-serif;
-    font-size: 12px;
-    line-height: 24px;
-    font-weight: bold;
-    text-decoration: none;
-    -webkit-border-radius: 10px;
-    -moz-border-radius: 10px;
-    border-radius: 10px;
-    padding:10px;
-    border: 5px solid #999;
-    border: inset 1px solid #333;
-    -webkit-box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
-    -moz-box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
-    box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.3);
+#delete_node_info
+{
+  left:40%;
+  background:0;
+  background-color:#F0FFFF;
+  width:400px;
+  height:220px;
+  font-family:Tahoma, Geneva, sans-serif;
+  font-size:12px;
+  line-height:24px;
+  font-weight:700;
+  text-decoration:none;
+  -webkit-border-radius:10px;
+  -moz-border-radius:10px;
+  border-radius:10px;
+  border:inset 1px solid #333;
+  -webkit-box-shadow:0 0 8px rgba(0,0,0,0.3);
+  -moz-box-shadow:0 0 8px rgba(0,0,0,0.3);
+  box-shadow:0 0 1px rgba(0,0,0,0.3);
+  margin:auto;
+  padding:10px;
 }
 
-#delete_node_info {
-    left: 40%;
-    background: -webkit-gradient(linear, bottom, left 175px, from(#CCCCCC), to(#EEEEEE));
-    background: -moz-linear-gradient(bottom, #CCCCCC, #EEEEEE 175px);
-	background-color: #F0FFFF;
-    margin:auto;
-	margin-top:auto;
-    position:absolute;
-    width:400px;
-    height:150px;
-    font-family: Tahoma, Geneva, sans-serif;
-    font-size: 12px;
-    line-height: 24px;
-    font-weight: bold;
-    text-decoration: none;
-    -webkit-border-radius: 10px;
-    -moz-border-radius: 10px;
-    border-radius: 10px;
-    padding:10px;
-    border: 5px solid #999;
-    border: inset 1px solid #333;
-    -webkit-box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
-    -moz-box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
-    box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.3);
+#gene_info
+{
+  left:40%;
+  background:0;
+  background-color:#F0FFFF;
+  width:400px;
+  height:400px;
+  font-family:Tahoma, Geneva, sans-serif;
+  font-size:12px;
+  line-height:24px;
+  font-weight:700;
+  text-decoration:none;
+  -webkit-border-radius:10px;
+  -moz-border-radius:10px;
+  border-radius:10px;
+  border:inset 1px solid #333;
+  -webkit-box-shadow:0 0 8px rgba(0,0,0,0.3);
+  -moz-box-shadow:0 0 8px rgba(0,0,0,0.3);
+  box-shadow:0 0 1px rgba(0,0,0,0.3);
+  margin:auto;
+  padding:10px;
 }
 
-#relationship_select {
-	right:150px;
-    background: -webkit-gradient(linear, bottom, left 175px, from(#CCCCCC), to(#EEEEEE));
-    background: -moz-linear-gradient(bottom, #CCCCCC, #EEEEEE 175px);
-	background-color: #F0FFFF;
-    margin:auto;
-	margin-top:auto;
-    position:fixed;
-    width:300px;
-    height:180px;
-    font-family: Tahoma, Geneva, sans-serif;
-    font-size: 12px;
-    line-height: 24px;
-    font-weight: bold;
-    text-decoration: none;
-    -webkit-border-radius: 10px;
-    -moz-border-radius: 10px;
-    border-radius: 10px;
-    padding:10px;
-    border: 5px solid #999;
-    border: inset 1px solid #333;
-    -webkit-box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
-    -moz-box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
-    box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.3);
+#complex_info
+{
+  left:40%;
+  background:0;
+  background-color:#F0FFFF;
+  width:400px;
+  height:420px;
+  font-family:Tahoma, Geneva, sans-serif;
+  font-size:12px;
+  line-height:24px;
+  font-weight:700;
+  text-decoration:none;
+  -webkit-border-radius:10px;
+  -moz-border-radius:10px;
+  border-radius:10px;
+  border:inset 1px solid #333;
+  -webkit-box-shadow:0 0 8px rgba(0,0,0,0.3);
+  -moz-box-shadow:0 0 8px rgba(0,0,0,0.3);
+  box-shadow:0 0 1px rgba(0,0,0,0.3);
+  margin:auto;
+  padding:10px;
 }
 
-input#name {
-	width: 385px;
-	height: 20px;
-	border: 3px solid #cccccc;
-	padding: 5px;
-	font-family: Tahoma, sans-serif;
-	background-image: url(bg.gif);
-	background-position: bottom right;
-	background-repeat: no-repeat;
+#relationship_select
+{
+  right:150px;
+  background:0;
+  background-color:#F0FFFF;
+  position:fixed;
+  width:300px;
+  height:180px;
+  font-family:Tahoma, Geneva, sans-serif;
+  font-size:12px;
+  line-height:24px;
+  font-weight:700;
+  text-decoration:none;
+  -webkit-border-radius:10px;
+  -moz-border-radius:10px;
+  border-radius:10px;
+  border:inset 1px solid #333;
+  -webkit-box-shadow:0 0 8px rgba(0,0,0,0.3);
+  -moz-box-shadow:0 0 8px rgba(0,0,0,0.3);
+  box-shadow:0 0 1px rgba(0,0,0,0.3);
+  margin:auto;
+  padding:10px;
 }
 
-#search {
-	font-size: ;
-	margin-left:auto;
-	margin-right:auto;
-	width:20%;
-	color: #333;
-	background-color: #F0FFFF;
+input#name
+{
+  width:385px;
+  height:20px;
+  border:3px solid #ccc;
+  font-family:Tahoma, sans-serif;
+  background-image:url(bg.gif);
+  background-position:bottom right;
+  background-repeat:no-repeat;
+  padding:5px;
 }
 
-.frontpage {
-	text-align: center; 
+#search_head
+{
+  margin-left:auto;
+  margin-right:auto;
+  width:20%;
+  color:#333;
+  background-color:#F0FFFF;
 }
 
-#select_box {
-	float : right;
-	width: 220px;
+#frontpage
+{
+  text-align:center;
 }
 
-textarea#box {
-    resize: none;
-	font-size: 12px;
-	width: 385px;
-	height: 120px;
-	border: 3px solid #cccccc;
-	padding: 5px;
-	font-family: Tahoma, sans-serif;
-	background-image: url(bg.gif);
-	background-position: bottom right;
-	background-repeat: no-repeat;
+#select_box
+{
+  float:right;
+  width:220px;
 }
 
-textarea#box2 {
-    resize: none;
-	font-size: 12px;
-	width: 385px;
-	height: 40px;
-	border: 3px solid #cccccc;
-	padding: 5px;
-	font-family: Tahoma, sans-serif;
-	background-image: url(bg.gif);
-	background-position: bottom right;
-	background-repeat: no-repeat;
+textarea#box
+{
+  resize:none;
+  font-size:12px;
+  width:385px;
+  height:120px;
+  border:3px solid #ccc;
+  font-family:Tahoma, sans-serif;
+  background-image:url(bg.gif);
+  background-position:bottom right;
+  background-repeat:no-repeat;
+  padding:5px;
 }
 
-#gse .gsc-search-box {
-   width: 1000px;
-   margin:auto;
+textarea#gene_list_box
+{
+  resize:none;
+  font-size:15px;
+  width:390px;
+  height:300px;
+  border:3px solid #ccc;
+  font-family:Tahoma, sans-serif;
+  background-image:url(bg.gif);
+  background-position:bottom right;
+  background-repeat:no-repeat;
+  padding:5px;
 }
 
-#wrap {
-    min-width: 200px;
+textarea#complex_list_box
+{
+  resize:none;
+  font-size:15px;
+  width:390px;
+  height:100px;
+  border:3px solid #ccc;
+  font-family:Tahoma, sans-serif;
+  background-image:url(bg.gif);
+  background-position:bottom right;
+  background-repeat:no-repeat;
+  padding:5px;
 }
 
+textarea#box2
+{
+  resize:none;
+  font-size:12px;
+  width:385px;
+  height:px;
+  border:3px solid #ccc;
+  font-family:Tahoma, sans-serif;
+  background-image:url(bg.gif);
+  background-position:bottom right;
+  background-repeat:no-repeat;
+  padding:5px;
+}
+
+#gse .gsc-search-box
+{
+  width:1000px;
+  margin:auto;
+}
+
+#gene_view
+{
+  float:left;
+}
+
+#wrap
+{
+  min-width:200px;
+}
+
+input[type=submit]
+{
+  width:400px;
+  font-size:13px;
+  background:#ccc;
+  border:0 none;
+  cursor:pointer;
+  -webkit-border-radius:5px;
+  border-radius:5px;
+  padding:5px 15px;
+}

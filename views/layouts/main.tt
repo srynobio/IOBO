@@ -1,190 +1,263 @@
 <!DOCTYPE html>
-
 <html>
-<div class="frontpage">
-	<h1>IOBO</h2>
-	<h2>Welcome to Image OBO | Images to Ontologies.</h2>
-	<a href="../add_node">Add Node</a>&nbsp
-        <a href="../update_node">Update Node</a>&nbsp
-	<a href="../delete_node">Delete Node</a>&nbsp
-		
-</div>
-    <head>
-        <meta http-equiv="Content-type" content="text/html; charset=<% settings.charset %>" />
-        <title>IOBO | Images to Ontologies</title>
-        <link rel="stylesheet" href="[% css_url %]" />
-	
-    </head>
-    <body>	
-	    [% content %]
-	    <div id="gene_select" align="left">
-            <!-- http://bl.ocks.org/mbostock/1093025 -->
-
+   <div id="frontpage" >
+      <h1>
+      IOBO</h2>
+      <h2>Welcome to Image OBO | Images to Ontologies.</h2>
+      <a href="../gene_list">Gene List</a>&nbsp
+      <a href="../complex_list">Complex List</a>&nbsp
+      <a href="../metabolic_list">Metabolic List</a>&nbsp
+      <a href="../protein_list">Protein List</a>&nbsp
+      <a href="../add_node">Add Node</a>&nbsp
+      <a href="../update_node">Update Node</a>&nbsp
+      <a href="../delete_node">Delete Node</a>&nbsp
+   </div>
+   <head>
+      <meta http-equiv="Content-type" content="text/html; charset=<% settings.charset %>" />
+      <title>IOBO | Images to Ontologies</title>
+      <link rel="stylesheet" href="[% css_url %]" />
+      <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
+      <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+      <script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+      <link rel="stylesheet" href="/resources/demos/style.css">
+   </head>
+   <body>
+      <script>
+         // http://jqueryui.com/autocomplete/
+         $(function() {
+            var availableTags = [
+         "p53",
+         "Ras",
+         "PFK",
+         "PKM2",
+         "LDHA",
+         "IDH1",
+         "IDH2",
+         "Hexokinase",
+         "Glucose transporter",
+         "MOMAO",
+         "MIIDOC",
+         "IIEOEO",
+         "Car",
+         "Mox",
+         "Box",
+            ];
+            $( "#genes" ).autocomplete({
+              source: availableTags
+            });
+            $( "#complex_name" ).autocomplete({
+              source: availableTags
+            });
+            $( "#relationship_gene" ).autocomplete({
+              source: availableTags
+            });
+          });
+      </script>
+      <!--   
+         <div id="gene_view" align="left">
+            <!-- http://bl.ocks.org/mbostock/1093025
             <style>
-
-	    	.node rect {
-	    	  cursor: pointer;
-	    	  fill: #fff;
-	    	  fill-opacity: .5;
-	    	  stroke: #3182bd;
-	    	  stroke-width: 1.5px;
-	    	}
-
-	    	.node text {
-	    	  font: 12px Lucida Grande;
-	    	  pointer-events: none;
-	    	}
-	
-	    	path.link {
-	    	  fill: none;
-	    	  stroke: #9ecae1;
-	    	  stroke-width: 1.5px;
-	    	}
-
-	    	</style>
-	
-	    	<script src="http://d3js.org/d3.v3.min.js"></script>
-	    	<script>
-
-	    	var margin = {top: 50, right: 100, bottom: 30, left: 100 },
-	    	    width = 500 - margin.left - margin.right,
-	    	    barHeight = 20,
-	    	    barWidth = width * .9;
-
-	    	var i = 0,
-	    	    duration = 400,
-	    	    root;
-
-	    	var tree = d3.layout.tree()
-	    	    .size([0, 70]);
-
-	    	var diagonal = d3.svg.diagonal()
-	    	    .projection(function(d) { return [d.y, d.x]; });
-
-	    	var svg = d3.select("body").append("svg")
-	    	    .attr("width", width + margin.left + margin.right)
-	    	  .append("g")
-	    	    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-
-	    	d3.json("json/iobo.json", function(error, flare) {
-	    	  flare.x0 = 0;
-	    	  flare.y0 = 0;
-	    	  update(root = flare);
-	    	});
-
-	    	function update(source) {
-
-	    	  // Compute the flattened node list. TODO use d3.layout.hierarchy.
-	    	  var nodes = tree.nodes(root);
-
-	    	  var height = Math.max(500, nodes.length * barHeight + margin.top + margin.bottom);
-
-	    	  d3.select("svg")
-	    	      .attr("height", height);
-
-	    	  d3.select(self.frameElement)
-	    	      .style("height", height + "px");
-
-	    	  // Compute the "layout".
-	    	  nodes.forEach(function(n, i) {
-	    	    n.x = i * barHeight;
-	    	  });
-
-	    	  // Update the nodes…
-	    	  var node = svg.selectAll("g.node")
-	    	      .data(nodes, function(d) { return d.id || (d.id = ++i); });
-
-	    	  var nodeEnter = node.enter().append("g")
-	    	      .attr("class", "node")
-	    	      .attr("transform", function(d) { return "translate(" + source.y0 + "," + source.x0 + ")"; })
-	    	      .style("opacity", 1e-6);
-
-	    	  // Enter any new nodes at the parent's previous position.
-	    	  nodeEnter.append("rect")
-	    	      .attr("y", -barHeight / 2)
-	    	      .attr("height", barHeight)
-	    	      .attr("width", barWidth)
-	    	      .style("fill", color)
-	    	      .on("click", click);
-
-	    	  nodeEnter.append("text")
-	    	      .attr("dy", 3.5)
-	    	      .attr("dx", 5.5)
-	    	      .text(function(d) { return d.name; });
-
-	    	  // Transition nodes to their new position.
-	    	  nodeEnter.transition()
-	    	      .duration(duration)
-	    	      .attr("transform", function(d) { return "translate(" + d.y + "," + d.x + ")"; })
-	    	      .style("opacity", 1);
-
-	    	  node.transition()
-	    	      .duration(duration)
-	    	      .attr("transform", function(d) { return "translate(" + d.y + "," + d.x + ")"; })
-	    	      .style("opacity", 1)
-	    	    .select("rect")
-	    	      .style("fill", color);
-
-	    	  // Transition exiting nodes to the parent's new position.
-	    	  node.exit().transition()
-	    	      .duration(duration)
-	    	      .attr("transform", function(d) { return "translate(" + source.y + "," + source.x + ")"; })
-	    	      .style("opacity", 1e-6)
-	    	      .remove();
-
-	    	  // Update the links…
-	    	  var link = svg.selectAll("path.link")
-	    	      .data(tree.links(nodes), function(d) { return d.target.id; });
-
-	    	  // Enter any new links at the parent's previous position.
-	    	  link.enter().insert("path", "g")
-	    	      .attr("class", "link")
-	    	      .attr("d", function(d) {
-	    	        var o = {x: source.x0, y: source.y0};
-	    	        return diagonal({source: o, target: o});
-	    	      })
-	    	    .transition()
-	    	      .duration(duration)
-	    	      .attr("d", diagonal);
-
-	    	  // Transition links to their new position.
-	    	  link.transition()
-	    	      .duration(duration)
-	    	      .attr("d", diagonal);
-
-	    	  // Transition exiting nodes to the parent's new position.
-	    	  link.exit().transition()
-	    	      .duration(duration)
-	    	      .attr("d", function(d) {
-	    	        var o = {x: source.x, y: source.y};
-	    	        return diagonal({source: o, target: o});
-	    	      })
-	    	      .remove();
-
-	    	  // Stash the old positions for transition.
-	    	  nodes.forEach(function(d) {
-	    	    d.x0 = d.x;
-	    	    d.y0 = d.y;
-	    	  });
-	    	}
-
-	    	// Toggle children on click.
-	    	function click(d) {
-	    	  if (d.children) {
-	    	    d._children = d.children;
-	    	    d.children = null;
-	    	  } else {
-	    	    d.children = d._children;
-	    	    d._children = null;
-	    	  }
-	    	  update(d);
-	    	}
-
-	    	function color(d) {
-	    	  return d._children ? "#3182bd" : d.children ? "#c6dbef" : "#fd8d3c";
-	    	}
-
-	    	</script>
-	    </div>
-    </body>
+               .node rect {
+               cursor: pointer;
+               fill: #fff;
+               fill-opacity: .5;
+               stroke: #3182bd;
+               stroke-width: 1.5px;
+               }
+               .node text {
+               font: 12px Lucida Grande;
+               pointer-events: none;
+               }
+               path.link {
+               fill: none;
+               stroke: #9ecae1;
+               stroke-width: 1.5px;
+               }
+            </style>
+            <script src="http://d3js.org/d3.v3.min.js"></script>
+            <script>
+               var margin = {top: 50, right: 100, bottom: 30, left: 100 },
+                   width = 500 - margin.left - margin.right,
+                   barHeight = 20,
+                   barWidth = width * .9;
+               
+               var i = 0,
+                   duration = 400,
+                   root;
+               
+               var tree = d3.layout.tree()
+                   .size([0, 70]);
+               
+               var diagonal = d3.svg.diagonal()
+                   .projection(function(d) { return [d.y, d.x]; });
+               
+               var svg = d3.select("body").append("svg")
+                   .attr("width", width + margin.left + margin.right)
+                 .append("g")
+                   .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+               
+               d3.json("json/iobo.json", function(error, flare) {
+                 flare.x0 = 0;
+                 flare.y0 = 0;
+                 update(root = flare);
+               });
+               
+               function update(source) {
+               
+                 // Compute the flattened node list. TODO use d3.layout.hierarchy.
+                 var nodes = tree.nodes(root);
+               
+                 var height = Math.max(500, nodes.length * barHeight + margin.top + margin.bottom);
+               
+                 d3.select("svg")
+                     .attr("height", height);
+               
+                 d3.select(self.frameElement)
+                     .style("height", height + "px");
+               
+                 // Compute the "layout".
+                 nodes.forEach(function(n, i) {
+                   n.x = i * barHeight;
+                 });
+               
+                 // Update the nodes…
+                 var node = svg.selectAll("g.node")
+                     .data(nodes, function(d) { return d.id || (d.id = ++i); });
+               
+                 var nodeEnter = node.enter().append("g")
+                     .attr("class", "node")
+                     .attr("transform", function(d) { return "translate(" + source.y0 + "," + source.x0 + ")"; })
+                     .style("opacity", 1e-6);
+               
+                 // Enter any new nodes at the parent's previous position.
+                 nodeEnter.append("rect")
+                     .attr("y", -barHeight / 2)
+                     .attr("height", barHeight)
+                     .attr("width", barWidth)
+                     .style("fill", color)
+                     .on("click", click);
+               
+                 nodeEnter.append("text")
+                     .attr("dy", 3.5)
+                     .attr("dx", 5.5)
+                     .text(function(d) { return d.name; });
+               
+                 // Transition nodes to their new position.
+                 nodeEnter.transition()
+                     .duration(duration)
+                     .attr("transform", function(d) { return "translate(" + d.y + "," + d.x + ")"; })
+                     .style("opacity", 1);
+               
+                 node.transition()
+                     .duration(duration)
+                     .attr("transform", function(d) { return "translate(" + d.y + "," + d.x + ")"; })
+                     .style("opacity", 1)
+                   .select("rect")
+                     .style("fill", color);
+               
+                 // Transition exiting nodes to the parent's new position.
+                 node.exit().transition()
+                     .duration(duration)
+                     .attr("transform", function(d) { return "translate(" + source.y + "," + source.x + ")"; })
+                     .style("opacity", 1e-6)
+                     .remove();
+               
+                 // Update the links…
+                 var link = svg.selectAll("path.link")
+                     .data(tree.links(nodes), function(d) { return d.target.id; });
+               
+                 // Enter any new links at the parent's previous position.
+                 link.enter().insert("path", "g")
+                     .attr("class", "link")
+                     .attr("d", function(d) {
+                       var o = {x: source.x0, y: source.y0};
+                       return diagonal({source: o, target: o});
+                     })
+                   .transition()
+                     .duration(duration)
+                     .attr("d", diagonal);
+               
+                 // Transition links to their new position.
+                 link.transition()
+                     .duration(duration)
+                     .attr("d", diagonal);
+               
+                 // Transition exiting nodes to the parent's new position.
+                 link.exit().transition()
+                     .duration(duration)
+                     .attr("d", function(d) {
+                       var o = {x: source.x, y: source.y};
+                       return diagonal({source: o, target: o});
+                     })
+                     .remove();
+               
+                 // Stash the old positions for transition.
+                 nodes.forEach(function(d) {
+                   d.x0 = d.x;
+                   d.y0 = d.y;
+                 });
+               }
+               
+               // Toggle children on click.
+               function click(d) {
+                 if (d.children) {
+                   d._children = d.children;
+                   d.children = null;
+                 } else {
+                   d.children = d._children;
+                   d._children = null;
+                 }
+                 update(d);
+               }
+               
+               function color(d) {
+                 return d._children ? "#3182bd" : d.children ? "#c6dbef" : "#fd8d3c";
+               }
+               
+         </script>
+         -->
+      <script type="text/javascript">
+         $(document).ready(function() {
+             $("#btnAdd").click(function() {
+                 var num     = $(".clonedSection").length;
+                 var newNum  = new Number(num + 1);
+         
+                 var newSection = $("#clonedSection" + num).clone().attr("id", "clonedSection" + newNum);
+         
+                 newSection.children(":first").children(":first").attr("id", "name" + newNum).attr("name", "name" + newNum);
+                 newSection.children(":nth-child(3)").children(":first").attr("id", "desc" + newNum).attr("name", "desc" + newNum);
+                 newSection.children(":nth-child(4)").children(":first").attr("id", "brand" + newNum).attr("name", "brand" + newNum);
+                 newSection.children(":nth-child(5)").children(":first").attr("id", "code" + newNum).attr("name", "code" + newNum);
+                 newSection.children(":nth-child(6)").children(":first").attr("id", "coop" + newNum).attr("name", "coop" + newNum);
+                 newSection.children(":nth-child(7)").children(":first").attr("id", "yes" + newNum).attr("name", "yes" + newNum);
+                 newSection.children(":nth-child(7)").children(":nth-child(2)").attr("id", "no" + newNum).attr("name", "no" + newNum);
+                 newSection.children(":nth-child(8)").children(":first").attr("id", "comm" + newNum).attr("name", "comm" + newNum);
+         
+                 $(".clonedSection").last().append(newSection)
+         
+                 $("#btnDel").attr("disabled","");
+         
+                 if (newNum == 10)
+                     $("#btnAdd").attr("disabled","disabled");
+             });
+         
+             $("#btnDel").click(function() {
+                 var num = $(".clonedSection").length; // how many "duplicatable" input fields we currently have
+                 $("#clonedSection" + num).remove();     // remove the last element
+         
+                 // enable the "add" button
+                 $("#btnAdd").attr("disabled","");
+         
+                 // if only one element remains, disable the "remove" button
+                 if (num-1 == 1)
+                     $("#btnDel").attr("disabled","disabled");
+             });
+         
+             $("#btnDel").attr("disabled","disabled");
+         });
+      </script>
+      <!-- content is where all other pages are inserted -->
+      [% content %]
+      </div>
+   </body>
 </html>

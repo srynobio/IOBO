@@ -1,0 +1,11 @@
+<div id="protein_list" class="center">
+   <br>
+   <form id="gene_info" method="POST" action="[% create_protein_list %]">
+      <br>
+      Enter list of proteins on image:
+      <br>
+      <textarea id="gene_list_box" name="protein_list">
+      </textarea><br>
+      <input type="submit" value="Submit" />
+   </form>
+</div>

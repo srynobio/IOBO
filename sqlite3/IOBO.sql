@@ -30,5 +30,36 @@ CREATE TABLE "relationships"(
     FOREIGN KEY("subject")
     REFERENCES "gene_info"("id")
 );
+
+CREATE TABLE "gene_list"(
+	"id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+	"name" VARCHAR(45) NOT NULL
+);
+
+CREATE TABLE "complex_info"(
+	"id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+	"name" VARCHAR(45) NOT NULL,
+	"parts" VARCHAR(45) NOT NULL,
+	"pathway" VARCHAR(45) NOT NULL
+);
+
+CREATE TABLE "metabolic_list"(
+	"id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+	"name" VARCHAR(45) NOT NULL
+);
+
+CREATE TABLE "protein_list"(
+	"id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+	"name" VARCHAR(45) NOT NULL
+);
+
 CREATE INDEX "relationships.fk_relationship_gene_info1" ON "relationships"("subject");
 COMMIT;
+
+
+
+
+
+
+
+

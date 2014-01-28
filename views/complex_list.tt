@@ -1,12 +1,19 @@
-<div id="delete" class="center">
+<div id="complex_list" class="center">
    <br>
-   <form id="delete_node_info" action="[% delete_node_term %]" method="POST">
-      <h2>Delete Term (Node)</h2>
-      Image Name:<br>
-      <input type="text" name="image_gene" required>
+   <form id="complex_info" method="POST" action="[% create_complex_list %]">
+      <br>
+      Enter list of complex parts.
+      <textarea id="complex_list_box" name="complex_parts">
+        </textarea>
+      <br>
+      <br>
+      Enter complex name:
+      <br>
+      <textarea id="complex_list_box" name="complex_name">
+        </textarea>
       <br>
       Pathway:
-      <select name"pathway" id="select_box">
+      <select name"pathway" id="select_box" name="complex_pathway">
          <option value=""></option>
          <option value="autophagy">Autophagy</option>
          <option value="akt_signaling">AKt signaling</option>
@@ -16,7 +23,6 @@
          <option value="hedgehog_signaling">Hedgehog signaling</option>
          <option value="epigenetic_signaling">Epigenetic signaling</option>
          <option value="ras_signaling">Ras signaling</option>
-         <link rel="stylesheet" href="../public/css/style.css" type="text/css" media="screen" title="no title" charset="utf-8">
          <option value="gpcr_signaling">GPCR signaling</option>
          <option value="wnt_signaling">Wnt signaling</option>
          <option value="hippo_signaling">Hippo signaling</option>
@@ -24,6 +30,6 @@
       </select>
       <br>
       <br>
-      <input type="submit" value="Submit">
+      <input type="submit" value="Submit" />
    </form>
 </div>
