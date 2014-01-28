@@ -320,8 +320,9 @@ sub req_check {
     my $post = request->params;
 
     # check for both gene names
-    unless ( $post->{'image_gene'} and $post->{'hugo_gene'} ) {
-        halt("Image and Hugo gene name required");
+    unless ( $post->{'image_gene'} and $post->{'hugo_gene'}
+            and $post->{'pathway'} and $post->{'location'}) {
+        halt("Required: Image, Hugo, Pathway and location");
     }
     return;
 }

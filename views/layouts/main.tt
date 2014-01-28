@@ -26,21 +26,22 @@
          // http://jqueryui.com/autocomplete/
          $(function() {
             var availableTags = [
-         "p53",
-         "Ras",
-         "PFK",
-         "PKM2",
-         "LDHA",
-         "IDH1",
-         "IDH2",
-         "Hexokinase",
-         "Glucose transporter",
-         "MOMAO",
-         "MIIDOC",
-         "IIEOEO",
-         "Car",
-         "Mox",
-         "Box",
+            "p53",
+            "Ras",
+            "Hexokinase",
+            "PFK",
+            "PKM2",
+            "LDHA",
+            "IDH1",
+            "IDH2",
+            "Glucose transporter",
+            "citrate",
+            "Fatty acid synthesis",
+            "G-6-P",
+            "F-6-P",
+            "Fructose Bisphosphate",
+            "pyruvate",
+            "lactate",
             ];
             $( "#genes" ).autocomplete({
               source: availableTags
