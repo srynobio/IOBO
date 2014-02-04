@@ -2,7 +2,7 @@
    <br>
    <form id="gene_info" method="POST" action="[% create_gene_list %]">
       <br>
-      Enter list of gene names on image:
+      Enter list of gene names:
       <br>
       <textarea id="gene_list_box" name="gene_list">
       </textarea><br>

@@ -9,6 +9,7 @@ applications.
 IOBO was created as a joint project between the M.Yandell & K.Eilbeck labs to transform this <a href="http://www.garlandscience.com/res/9780815342199/supplementary/Pathways_in_Human_Cancer.pdf" target="_blank">image</a>
 into a transversable ontology.
 
+Version 0.0.3
 
 <h2>Requirements</h2>
 

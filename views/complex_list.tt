@@ -2,7 +2,7 @@
    <br>
    <form id="complex_info" method="POST" action="[% create_complex_list %]">
       <br>
-      Enter list of complex parts.
+      Enter list of complex parts:
       <textarea id="complex_list_box" name="complex_parts">
         </textarea>
       <br>

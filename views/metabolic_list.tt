@@ -2,7 +2,7 @@
    <br>
    <form id="gene_info" method="POST" action="[% create_metabolic_list %]">
       <br>
-      Enter list of metabolic mediators on image:
+      Enter list of metabolic activities and environmental factors:
       <br>
       <textarea id="gene_list_box" name="metabolic_list">
       </textarea><br>

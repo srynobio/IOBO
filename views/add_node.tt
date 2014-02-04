@@ -17,13 +17,14 @@
    </div>
 </head>
 <br>
+
 <!-- Area for the main form -->
 <form id="add_node_info" action="[% add_node_term %]" method="POST">
    <h2>Add Term (Node)</h2>
    Image Name:* <br>
    <input type="text" name="image_gene" id="genes" required>
-   Hugo Gene*:<br>
-   <input type="text" name="hugo_gene" required>
+   Hugo Gene:<br>
+   <input type="text" name="hugo_gene">
    Complex Name:<br>
    <input type="text" name="complex_name" id="complex_name">
    <br>
@@ -56,8 +57,8 @@
       <option value="tumor_suppressor">Tumor Suppressor</option>
    </select>
    <br>
-   Pathway:
-   <select name"pathway" id="select_box">
+   Pathway:*
+   <select name="pathway" id="select_box">
       <option value=""></option>
       <option value="autophagy">Autophagy</option>
       <option value="akt_signaling">AKt signaling</option>
@@ -67,7 +68,6 @@
       <option value="hedgehog_signaling">Hedgehog signaling</option>
       <option value="epigenetic_signaling">Epigenetic signaling</option>
       <option value="ras_signaling">Ras signaling</option>
-      <link rel="stylesheet" href="../public/css/style.css" type="text/css" media="screen" title="no title" charset="utf-8">
       <option value="gpcr_signaling">GPCR signaling</option>
       <option value="wnt_signaling">Wnt signaling</option>
       <option value="hippo_signaling">Hippo signaling</option>
@@ -75,15 +75,17 @@
    </select>
    <br>
    <br>
-   Location[s]:<br>
+   Location:*<br>
    <input type="checkbox" name="location" value="nucleolus">Nucleolus<br>
    <input type="checkbox" name="location" value="nucleoplasm">Nucleoplasm<br>
-   <input type="checkbox" name="location" value="nuclear_envelope">Nuclear envelope<br>
+   <input type="checkbox" name="location" value="nuclear_envelope">Nuclear Envelope<br>
    <input type="checkbox" name="location" value="cell_membrane">Cell Membrane<br>
    <input type="checkbox" name="location" value="cytosol">Cytosol<br>
    <input type="checkbox" name="location" value="mitochondria">Mitochondria<br>
-   <input type="checkbox" name="location" value="mitochondria_inner_membrane">Mitochondria Inner Membrane<br>
-   <input type="checkbox" name="location" value="mitochondria_crista">Mitochondria Crista<br>
+   <input type="checkbox" name="location" value="mitochondria_inner_membrane_space">Mitochondria Inner Membrane Space<br>
+   <input type="checkbox" name="location" value="mitochondria_inner_membrane">Mitochondria Inner Membrane <br>
+   <input type="checkbox" name="location" value="dna_binding">DNA Binding<br>
+   <input type="checkbox" name="location" value="extracellular">Extracellular<br>
    <br>
    <h2>Relationships (Edge)</h2>
    <div id='clonedSection1' class='clonedSection'>

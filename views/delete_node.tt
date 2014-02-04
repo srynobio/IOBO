@@ -6,7 +6,7 @@
       <input type="text" name="image_gene" required>
       <br>
       Pathway:
-      <select name"pathway" id="select_box">
+      <select name="pathway" id="select_box">
          <option value=""></option>
          <option value="autophagy">Autophagy</option>
          <option value="akt_signaling">AKt signaling</option>
@@ -16,7 +16,6 @@
          <option value="hedgehog_signaling">Hedgehog signaling</option>
          <option value="epigenetic_signaling">Epigenetic signaling</option>
          <option value="ras_signaling">Ras signaling</option>
-         <link rel="stylesheet" href="../public/css/style.css" type="text/css" media="screen" title="no title" charset="utf-8">
          <option value="gpcr_signaling">GPCR signaling</option>
          <option value="wnt_signaling">Wnt signaling</option>
          <option value="hippo_signaling">Hippo signaling</option>

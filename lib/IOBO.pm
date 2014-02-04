@@ -2,10 +2,10 @@ package IOBO;
 use Dancer ':syntax';
 use Dancer::Plugin::Database;
 use Template;
-##use JSON::XS;
-
+use JSON::XS;
 use Data::Dumper;
-our $VERSION = '0.0.2';
+
+our $VERSION = '0.0.3';
 
 #---------------------------
 # hooks
@@ -23,6 +23,12 @@ hook 'before_template_render' => sub {
 
 get '/' => sub {
     redirect '/add_node';
+};
+
+#---------------------------
+
+get '/display_relationship' => sub {
+    template 'display_relationship';
 };
 
 #---------------------------
@@ -84,7 +90,7 @@ post '/create_metabolic_list' => sub {
 
 get '/add_node' => sub {
 
-    #json_writer();
+    json_writer();
     template 'add_node', { add_node_term => uri_for('/node_upload'), };
 };
 
@@ -105,14 +111,15 @@ post '/node_upload' => sub {
 
 get '/update_node' => sub {
 
-    #json_writer();
-    template 'update_node', { update_node_term => uri_for('/node_update'), };
+    json_writer();
+    template 'update_node', { update_node_info => uri_for('/node_update'), };
 };
 
 #---------------------------
 
 post '/node_update' => sub {
 
+    req_check();
     gene_update();
     relationship_insert();
     redirect '/update_node';
@@ -122,7 +129,7 @@ post '/node_update' => sub {
 
 get '/delete_node' => sub {
 
-    #json_writer();
+    json_writer();
     template 'delete_node', { delete_node_term => uri_for('/node_remove'), };
 };
 
@@ -131,6 +138,7 @@ get '/delete_node' => sub {
 post '/node_remove' => sub {
 
     my $gene = request->params;
+
     node_remove();
     redirect '/delete_node';
 };
@@ -142,6 +150,11 @@ post '/node_remove' => sub {
 sub node_remove {
 
     my $post = request->params;
+
+    # check for both gene names
+    unless ( $post->{'image_gene'} and $post->{'pathway'} ) {
+        halt("To Delete image_gene and Pathway required");
+    }
 
     my $select = database->quick_select(
         'gene_info',
@@ -216,10 +229,10 @@ sub gene_insert {
       ? @local = @{$location}
       : push @local, $location;
 
-    my $places;
+    my $place;
     ( scalar @local < 1 )
-      ? $places = shift @local
-      : $places = join( ":", @local );
+      ? $place = shift @local
+      : $place = join( ":", @local );
 
     # Node (gene info)
     database->quick_insert(
@@ -234,7 +247,7 @@ sub gene_insert {
             pathway                => $post->{'pathway'},
             definition             => $post->{'definition'},
             dbxref                 => $post->{'dbxref'},
-            location               => $places,
+            location               => $place,
         }
     );
     return;
@@ -268,7 +281,7 @@ sub relationship_insert {
       : push @genes, $object;
 
     unless ( scalar @relationships eq scalar @genes ) {
-        halt("Genes and relationships not added");
+        halt("Gene and relationships not added");
     }
 
     for ( my $i = 0 ; $i <= scalar @genes ; $i++ ) {
@@ -291,10 +304,12 @@ sub gene_update {
     my $post = request->params;
 
     # get original data info
-    my $row =
-      database->quick_select( 'gene_info',
+    my $row = database->quick_select(
+        'gene_info',
         { image_gene => $post->{'image_gene'} },
-      );
+        { pathway    => $post->{'pathway'} },
+        { location   => $post->{'location'} }
+    );
 
     # set id
     my $id = $row->{'id'};
@@ -320,68 +335,57 @@ sub req_check {
     my $post = request->params;
 
     # check for both gene names
-    unless ( $post->{'image_gene'} and $post->{'hugo_gene'}
-            and $post->{'pathway'} and $post->{'location'}) {
-        halt("Required: Image, Hugo, Pathway and location");
+    unless ($post->{'image_gene'}
+        and $post->{'pathway'}
+        and $post->{'location'} )
+    {
+        halt("Required: Image, Pathway and location");
     }
     return;
 }
 
 #---------------------------
 
-#sub dups_check {
-#    my $post = request->params;
-#
-#    # check if gene has been entered into database already.
-#    my $image =
-#      database->quick_select( 'gene_info',
-#        { image_gene => $post->{'image_gene'} },
-#      );
-#    if ($image) {
-#        halt("Gene already entered into database");
-#    }
-#    return;
-#}
+sub json_writer {
 
-#---------------------------
+    my $JFH = IO::File->new( '../public/json/iobo.json', 'w' );
 
-#sub json_writer {
-#
-#    my $JFH = IO::File->new( '../public/json/iobo.json', 'w' );
-#
-#    my @genes     = database->quick_select( 'gene_info',     {} );
-#    my @relations = database->quick_select( 'relationships', {} );
-#
-#    my %test;
-#
-#    # head tag
-#    $test{'name'} = "IOBO";
-#
-#    my $gene_name;
-#    foreach my $gene (@genes) {
-#        $gene_name = $gene->{'image_gene'};
-#
-#        my @rels;
-#        foreach my $rels (@relations) {
-#            if ( $gene->{'id'} eq $rels->{'subject'} ) {
-#                my $value = "$rels->{predicate} : $rels->{'object'}";
-#                push @rels, { name => $value };
-#            }
-#        }
-#
-#        my $thing = {
-#            name     => $gene_name,
-#            children => \@rels,
-#        };
-#        push @{ $test{'children'} }, $thing;
-#    }
-#
-#    my $flare = encode_json \%test;
-#    print $JFH $flare;
-#    $JFH->close;
-#
-#    return;
-#}
+    my @genes     = database->quick_select( 'gene_info',     {} );
+    my @relations = database->quick_select( 'relationships', {} );
+
+    my %iobo;
+
+    # head tag
+    $iobo{'name'} = "IOBO";
+
+    foreach my $gene (@genes) {
+        my $gene_name = $gene->{'image_gene'};
+        my $location  = $gene->{'location'};
+        my $pathway   = $gene->{'pathway'};
+
+        $gene_name = "$gene_name - $pathway - $location";
+
+        my @rels;
+        foreach my $rels (@relations) {
+            if ( $gene->{'id'} eq $rels->{'subject'} ) {
+                my $value = "$rels->{predicate} : $rels->{'object'}";
+                push @rels, { name => $value };
+            }
+        }
+
+        my $parts = {
+            name     => $gene_name,
+            children => \@rels,
+        };
+        push @{ $iobo{'children'} }, $parts;
+    }
+
+    my $flare = encode_json \%iobo;
+    print $JFH $flare;
+    $JFH->close;
+
+    return;
+}
 
 #---------------------------
 
