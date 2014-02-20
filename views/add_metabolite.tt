@@ -1,0 +1,11 @@
+<div id="add_metabolite" class="center">
+   <br>
+   <form id="gene_info" method="POST" action="[% add_metabolite_list %]">
+      <br>
+      Enter list of metabolites:
+      <br>
+      <textarea id="protein_list_box" name="metabolite_list">
+      </textarea><br>
+      <input type="submit" value="Submit" />
+   </form>
+</div>

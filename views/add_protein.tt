@@ -1,0 +1,70 @@
+<br>
+<form id="add_protein" action="[% add_protein %]" method="POST">
+   <h2>Add Protein</h2>
+   Protein:* <br>
+   <input type="text" name="protein_name" id="protein" required>
+   <br>
+   Genetic Alterations:
+   <select name="genetic_alterations" id="select_box">
+      <option value=""></option>
+      <option value="point_mutation">point mutation</option>
+      <option value="amplification">amplification</option>
+      <option value="translocation">translocation</option>
+      <option value="deletion">deletion</option>
+      <option value="viral_infection">viral infection</option>
+      <option value="increased_expression">increased expression</option>
+   </select>
+   <br>
+   Conferred Capabilites:
+   <select name="conferred_capabilities" id="select_box">
+      <option value=""></option>
+      <option value="evading_apoptosis">Evading apoptosis</option>
+      <option value="self_sufficiency_in_growth_signals">Self-sufficiency in growth signals</option>
+      <option value="insensitivity_to_anti_growth_signals">Insensitivity to anti-growth signals</option>
+      <option value="tissue_invasion_and_metastasis">Tissue invasion and metastasis</option>
+      <option value="limitless_replication_potential">Limitless replication potential</option>
+      <option value="sustained_angiogenesis">Sustained angiogenesis</option>
+   </select>k
+   <br>
+   Mutation Type:
+   <select name="mutation_type" id="select_box">
+      <option value=""></option>
+      <option value="oncogene">Oncogene</option>
+      <option value="tumor_suppressor">Tumor Suppressor</option>
+   </select>
+   <br>
+   Pathway:*
+   <select name="pathway" id="select_box" required>
+      <option value=""></option>
+      <option value="autophagy">Autophagy</option>
+      <option value="akt_signaling">AKt signaling</option>
+      <option value="warburg_effect">Warburg Effect</option>
+      <option value="death_receptor/NFkB_signaling">Death receptor/NFkB signaling</option>
+      <option value="notch_signaling">Notch signaling</option>
+      <option value="hedgehog_signaling">Hedgehog signaling</option>
+      <option value="epigenetic_signaling">Epigenetic signaling</option>
+      <option value="ras_signaling">Ras signaling</option>
+      <option value="gpcr_signaling">GPCR signaling</option>
+      <option value="wnt_signaling">Wnt signaling</option>
+      <option value="hippo_signaling">Hippo signaling</option>
+      <option value="tgfb_signaling">TGFb signaling</option>
+   </select>
+   <br>
+   <br>
+   Location:*<br>
+   <input type="checkbox" name="location" value="nucleolus">  Nucleolus<br>
+   <input type="checkbox" name="location" value="nucleoplasm">  Nucleoplasm<br>
+   <input type="checkbox" name="location" value="nuclear_envelope">  Nuclear Envelope<br>
+   <input type="checkbox" name="location" value="cell_membrane">  Cell Membrane<br>
+   <input type="checkbox" name="location" value="cytosol">  Cytosol<br>
+   <input type="checkbox" name="location" value="mitochondria">  Mitochondria<br>
+   <input type="checkbox" name="location" value="mitochondria_inner_membrane_space">  Mitochondria Inner Membrane Space<br>
+   <input type="checkbox" name="location" value="mitochondria_inner_membrane">  Mitochondria Inner Membrane <br>
+   <input type="checkbox" name="location" value="dna_binding">  DNA Binding<br>
+   <input type="checkbox" name="location" value="extracellular">  Extracellular<br>
+   <input type="checkbox" name="location" value="transmembrane">  Transmembrane<br>
+   <br>
+
+   <input type="submit" value="Submit">
+
+</form>

@@ -1,0 +1,286 @@
+<!-- Area for the add protein form -->
+<br>
+<form id="relationship_info" action="[% relationship_info %]" method="POST">
+
+
+
+   <h2>Image Name:</h2>
+   Protein/Complex/Metabolite Name:* <br>
+   <input type="text" name="image_item" id="genes" required>
+   Originating:
+   <select name="type" id="select_box" name="name_type" required>
+           <option value=""></option>
+           <option value="protein">Protein</option>
+           <option value="metabolite">Metabolite</option>
+           <option value="complex">Complex</option>
+	</select>   
+</br>
+   Pathway:
+   <select name="pathway" id="select_box" name="relationship_pathway" required>
+      <option value=""></option>
+      <option value="autophagy">Autophagy</option>
+      <option value="akt_signaling">AKt signaling</option>
+      <option value="warburg_effect">Warburg Effect</option>
+      <option value="death_receptor/NFkB_signaling">Death receptor/NFkB signaling</option>
+      <option value="notch_signaling">Notch signaling</option>
+      <option value="hedgehog_signaling">Hedgehog signaling</option>
+      <option value="epigenetic_signaling">Epigenetic signaling</option>
+      <option value="ras_signaling">Ras signaling</option>
+      <option value="gpcr_signaling">GPCR signaling</option>
+      <option value="wnt_signaling">Wnt signaling</option>
+      <option value="hippo_signaling">Hippo signaling</option>
+      <option value="tgfb_signaling">TGFb signaling</option>
+   </select>
+   <br>   
+   <br>
+
+
+
+
+
+
+
+   <h2>Relationships:</h2>
+   <div id='one' class='clonedSection'>
+      <div style='margin-bottom:4px;' class='clonedInput'>
+         Protein/Complex/Metabolite: 
+         <input type='text' name='relationship_gene1' id="relationship_gene1" required />
+      </div>
+      <div style='margin-bottom:4px;' class='clonedInputTwo'>
+         Relationship: 
+         <select name="relationship_type" id="select_box" required>
+            <option value=""></option>
+            <option value="direct_stimulatory_modifier">direct_stimulatory_modifier</option>
+            <option value="direct_inhibitory_modifier">direct_inhibitory_modifier</option>
+            <option value="multistep_stimulatory_modifier">multistep_stimulatory_modifier</option>
+            <option value="tentative_stimulatory_modifier">tentative_stimulatory_modifier</option>
+            <option value="transcriptional_contributor">transcriptional_contributor</option>
+         </select>
+      </div>
+   </div>
+   
+   <br>
+   <div id='two' class='clonedSection'>
+      <div style='margin-bottom:4px;' class='clonedInput'>
+         Protein/Complex/Metabolite: 
+         <input type='text' name='relationship_gene2' id="relationship_gene2" />
+      </div>
+      <div style='margin-bottom:4px;' class='clonedInputTwo'>
+         Relationship: 
+         <select name="relationship_type" id="select_box">
+            <option value=""></option>
+            <option value="direct_stimulatory_modifier">direct_stimulatory_modifier</option>
+            <option value="direct_inhibitory_modifier">direct_inhibitory_modifier</option>
+            <option value="multistep_stimulatory_modifier">multistep_stimulatory_modifier</option>
+            <option value="tentative_stimulatory_modifier">tentative_stimulatory_modifier</option>
+            <option value="transcriptional_contributor">transcriptional_contributor</option>
+         </select>
+      </div>
+   </div>
+   <br>
+   <div id='three' class='clonedSection'>
+      <div style='margin-bottom:4px;' class='clonedInput'>
+         Protein/Complex/Metabolite: 
+         <input type='text' name='relationship_gene3' id="relationship_gene3"  />
+      </div>
+      <div style='margin-bottom:4px;' class='clonedInputTwo'>
+         Relationship: 
+         <select name="relationship_type" id="select_box">
+            <option value=""></option>
+            <option value="direct_stimulatory_modifier">direct_stimulatory_modifier</option>
+            <option value="direct_inhibitory_modifier">direct_inhibitory_modifier</option>
+            <option value="multistep_stimulatory_modifier">multistep_stimulatory_modifier</option>
+            <option value="tentative_stimulatory_modifier">tentative_stimulatory_modifier</option>
+            <option value="transcriptional_contributor">transcriptional_contributor</option>
+         </select>
+      </div>
+   </div>
+   <br>
+   <div id='four' class='clonedSection'>
+      <div style='margin-bottom:4px;' class='clonedInput'>
+         Protein/Complex/Metabolite: 
+         <input type='text' name='relationship_gene4' id="relationship_gene4" />
+      </div>
+      <div style='margin-bottom:4px;' class='clonedInputTwo'>
+         Relationship: 
+         <select name="relationship_type" id="select_box">
+            <option value=""></option>
+            <option value="direct_stimulatory_modifier">direct_stimulatory_modifier</option>
+            <option value="direct_inhibitory_modifier">direct_inhibitory_modifier</option>
+            <option value="multistep_stimulatory_modifier">multistep_stimulatory_modifier</option>
+            <option value="tentative_stimulatory_modifier">tentative_stimulatory_modifier</option>
+            <option value="transcriptional_contributor">transcriptional_contributor</option>
+         </select>
+      </div>
+   </div>
+   <br>
+   <div id='five' class='clonedSection'>
+      <div style='margin-bottom:4px;' class='clonedInput'>
+         Protein/Complex/Metabolite: 
+         <input type='text' name='relationship_gene5' id="relationship_gene5" />
+      </div>
+      <div style='margin-bottom:4px;' class='clonedInputTwo'>
+         Relationship: 
+         <select name="relationship_type" id="select_box">
+            <option value=""></option>
+            <option value="direct_stimulatory_modifier">direct_stimulatory_modifier</option>
+            <option value="direct_inhibitory_modifier">direct_inhibitory_modifier</option>
+            <option value="multistep_stimulatory_modifier">multistep_stimulatory_modifier</option>
+            <option value="tentative_stimulatory_modifier">tentative_stimulatory_modifier</option>
+            <option value="transcriptional_contributor">transcriptional_contributor</option>
+         </select>
+      </div>
+   </div>
+   <br>
+   <div id='six' class='clonedSection'>
+      <div style='margin-bottom:4px;' class='clonedInput'>
+         Protein/Complex/Metabolite: 
+         <input type='text' name='relationship_gene6' id="relationship_gene6" />
+      </div>
+      <div style='margin-bottom:4px;' class='clonedInputTwo'>
+         Relationship: 
+         <select name="relationship_type" id="select_box">
+            <option value=""></option>
+            <option value="direct_stimulatory_modifier">direct_stimulatory_modifier</option>
+            <option value="direct_inhibitory_modifier">direct_inhibitory_modifier</option>
+            <option value="multistep_stimulatory_modifier">multistep_stimulatory_modifier</option>
+            <option value="tentative_stimulatory_modifier">tentative_stimulatory_modifier</option>
+            <option value="transcriptional_contributor">transcriptional_contributor</option>
+         </select>
+      </div>
+   </div>
+   <br>
+   <div id='seven' class='clonedSection'>
+      <div style='margin-bottom:4px;' class='clonedInput'>
+         Protein/Complex/Metabolite: 
+         <input type='text' name='relationship_gene7' id="relationship_gene7" />
+      </div>
+      <div style='margin-bottom:4px;' class='clonedInputTwo'>
+         Relationship: 
+         <select name="relationship_type" id="select_box">
+            <option value=""></option>
+            <option value="direct_stimulatory_modifier">direct_stimulatory_modifier</option>
+            <option value="direct_inhibitory_modifier">direct_inhibitory_modifier</option>
+            <option value="multistep_stimulatory_modifier">multistep_stimulatory_modifier</option>
+            <option value="tentative_stimulatory_modifier">tentative_stimulatory_modifier</option>
+            <option value="transcriptional_contributor">transcriptional_contributor</option>
+         </select>
+      </div>
+   </div>
+   <br>
+   <div id='eight' class='clonedSection'>
+      <div style='margin-bottom:4px;' class='clonedInput'>
+         Protein/Complex/Metabolite: 
+         <input type='text' name='relationship_gene8' id="relationship_gene8" />
+      </div>
+      <div style='margin-bottom:4px;' class='clonedInputTwo'>
+         Relationship: 
+         <select name="relationship_type" id="select_box">
+            <option value=""></option>
+            <option value="direct_stimulatory_modifier">direct_stimulatory_modifier</option>
+            <option value="direct_inhibitory_modifier">direct_inhibitory_modifier</option>
+            <option value="multistep_stimulatory_modifier">multistep_stimulatory_modifier</option>
+            <option value="tentative_stimulatory_modifier">tentative_stimulatory_modifier</option>
+            <option value="transcriptional_contributor">transcriptional_contributor</option>
+         </select>
+      </div>
+   </div>
+   <br>
+   <div id='nine' class='clonedSection'>
+      <div style='margin-bottom:4px;' class='clonedInput'>
+         Protein/Complex/Metabolite: 
+         <input type='text' name='relationship_gene9' id ="relationship_gene9" />
+      </div>
+      <div style='margin-bottom:4px;' class='clonedInputTwo'>
+         Relationship: 
+         <select name="relationship_type" id="select_box">
+            <option value=""></option>
+            <option value="direct_stimulatory_modifier">direct_stimulatory_modifier</option>
+            <option value="direct_inhibitory_modifier">direct_inhibitory_modifier</option>
+            <option value="multistep_stimulatory_modifier">multistep_stimulatory_modifier</option>
+            <option value="tentative_stimulatory_modifier">tentative_stimulatory_modifier</option>
+            <option value="transcriptional_contributor">transcriptional_contributor</option>
+         </select>
+      </div>
+   </div>
+   <br>
+   <div id='ten' class='clonedSection'>
+      <div style='margin-bottom:4px;' class='clonedInput'>
+         Protein/Complex/Metabolite: 
+         <input type='text' name='relationship_gene10' id ="relationship_gene10" />
+      </div>
+      <div style='margin-bottom:4px;' class='clonedInputTwo'>
+         Relationship: 
+         <select name="relationship_type" id="select_box">
+            <option value=""></option>
+            <option value="direct_stimulatory_modifier">direct_stimulatory_modifier</option>
+            <option value="direct_inhibitory_modifier">direct_inhibitory_modifier</option>
+            <option value="multistep_stimulatory_modifier">multistep_stimulatory_modifier</option>
+            <option value="tentative_stimulatory_modifier">tentative_stimulatory_modifier</option>
+            <option value="transcriptional_contributor">transcriptional_contributor</option>
+         </select>
+      </div>
+   </div>
+   <br>
+   <div id='eleven' class='clonedSection'>
+      <div style='margin-bottom:4px;' class='clonedInput'>
+         Protein/Complex/Metabolite: 
+         <input type='text' name='relationship_gene11' id="relationship_gene11" />
+      </div>
+      <div style='margin-bottom:4px;' class='clonedInputTwo'>
+         Relationship: 
+         <select name="relationship_type" id="select_box">
+            <option value=""></option>
+            <option value="direct_stimulatory_modifier">direct_stimulatory_modifier</option>
+            <option value="direct_inhibitory_modifier">direct_inhibitory_modifier</option>
+            <option value="multistep_stimulatory_modifier">multistep_stimulatory_modifier</option>
+            <option value="tentative_stimulatory_modifier">tentative_stimulatory_modifier</option>
+            <option value="transcriptional_contributor">transcriptional_contributor</option>
+         </select>
+      </div>
+   </div>
+   <br>
+   <div id='twelve' class='clonedSection'>
+      <div style='margin-bottom:4px;' class='clonedInput'>
+         Protein/Complex/Metabolite: 
+         <input type='text' name='relationship_gene12' id="relationship_gene12" />
+      </div>
+      <div style='margin-bottom:4px;' class='clonedInputTwo'>
+         Relationship: 
+         <select name="relationship_type" id="select_box">
+            <option value=""></option>
+            <option value="direct_stimulatory_modifier">direct_stimulatory_modifier</option>
+            <option value="direct_inhibitory_modifier">direct_inhibitory_modifier</option>
+            <option value="multistep_stimulatory_modifier">multistep_stimulatory_modifier</option>
+            <option value="tentative_stimulatory_modifier">tentative_stimulatory_modifier</option>
+            <option value="transcriptional_contributor">transcriptional_contributor</option>
+         </select>
+      </div>
+   </div>
+   <br>
+   <div id='thirteen' class='clonedSection'>
+      <div style='margin-bottom:4px;' class='clonedInput'>
+         Protein/Complex/Metabolite: 
+         <input type='text' name='relationship_gene13' id="relationship_gene13" />
+      </div>
+      <div style='margin-bottom:4px;' class='clonedInputTwo'>
+         Relationship: 
+         <select name="relationship_type" id="select_box">
+            <option value=""></option>
+            <option value="direct_stimulatory_modifier">direct_stimulatory_modifier</option>
+            <option value="direct_inhibitory_modifier">direct_inhibitory_modifier</option>
+            <option value="multistep_stimulatory_modifier">multistep_stimulatory_modifier</option>
+            <option value="tentative_stimulatory_modifier">tentative_stimulatory_modifier</option>
+            <option value="transcriptional_contributor">transcriptional_contributor</option>
+         </select>
+      </div>
+   </div>
+   <br>
+   <h2>Definition:</h2>
+   <textarea name="definition" id="def_box" tabindex="10" ></textarea>
+   <br>
+   Dbxref:<br>
+   <input type="text" name="dbxref">
+   <br>
+   <input type="submit" value="Submit">
+</form>
