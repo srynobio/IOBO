@@ -11,6 +11,7 @@ body
   padding:0;
 }
 
+
 input[type="text"]
 {
   width:400px;
@@ -23,6 +24,17 @@ input[type="text"]
   box-shadow:0 0 8px rgba(0,0,0,0.3);
 }
 
+input[type=checkbox]
+{
+  /* Double-sized Checkboxes */
+  -ms-transform: scale(2); /* IE */
+  -moz-transform: scale(2); /* FF */
+  -webkit-transform: scale(2); /* Safari and Chrome */
+  -o-transform: scale(2); /* Opera */
+  padding: 10px;
+}
+
+
 h1
 {
   font-size:40px;
@@ -33,35 +45,12 @@ h1
   margin:20px;
 }
 
-#add_node_info
+#add_protein
 {
   background:0;
   background-color:#F0FFFF;
   width:410px;
-  height:1470px;
-  font-family:Tahoma, Geneva, sans-serif;
-  font-size:12px;
-  line-height:24px;
-  font-weight:700;
-  text-decoration:none;
-  -webkit-border-radius:10px;
-  -moz-border-radius:10px;
-  border-radius:10px;
-  border:inset 1px solid #333;
-  -webkit-box-shadow:0 0 8px rgba(0,0,0,0.3);
-  -moz-box-shadow:0 0 8px rgba(0,0,0,0.3);
-  box-shadow:0 0 1px rgba(0,0,0,0.3);
-  margin:auto;
-  padding:10px;
-}
-
-#update_node_info
-{
-  left:40%;
-  background:0;
-  background-color:#C9E5FF;
-  width:410px;
-  height:1870px;
+  height:600px;
   font-family:Tahoma, Geneva, sans-serif;
   font-size:12px;
   line-height:24px;
@@ -124,51 +113,27 @@ h1
   padding:10px;
 }
 
-#complex_info
+#relationship_info
 {
-  left:40%;
-  background:0;
-  background-color:#F0FFFF;
-  width:400px;
-  height:420px;
-  font-family:Tahoma, Geneva, sans-serif;
-  font-size:12px;
-  line-height:24px;
-  font-weight:700;
-  text-decoration:none;
-  -webkit-border-radius:10px;
-  -moz-border-radius:10px;
-  border-radius:10px;
-  border:inset 1px solid #333;
-  -webkit-box-shadow:0 0 8px rgba(0,0,0,0.3);
-  -moz-box-shadow:0 0 8px rgba(0,0,0,0.3);
-  box-shadow:0 0 1px rgba(0,0,0,0.3);
-  margin:auto;
-  padding:10px;
-}
-
-#relationship_select
-{
-  right:150px;
-  background:0;
-  background-color:#F0FFFF;
-  position:fixed;
-  width:300px;
-  height:180px;
-  font-family:Tahoma, Geneva, sans-serif;
-  font-size:12px;
-  line-height:24px;
-  font-weight:700;
-  text-decoration:none;
-  -webkit-border-radius:10px;
-  -moz-border-radius:10px;
-  border-radius:10px;
-  border:inset 1px solid #333;
-  -webkit-box-shadow:0 0 8px rgba(0,0,0,0.3);
-  -moz-box-shadow:0 0 8px rgba(0,0,0,0.3);
-  box-shadow:0 0 1px rgba(0,0,0,0.3);
-  margin:auto;
-  padding:10px;
+    left:40%;
+    background:0;
+    background-color:#F0FFFF;
+    width:400px;
+    height:2000px;
+    font-family:Tahoma, Geneva, sans-serif;
+    font-size:12px;
+    line-height:24px;
+    font-weight:700;
+    text-decoration:none;
+    -webkit-border-radius:10px;
+    -moz-border-radius:10px;
+    border-radius:10px;
+    border:inset 1px solid #333;
+    -webkit-box-shadow:0 0 8px rgba(0,0,0,0.3);
+    -moz-box-shadow:0 0 8px rgba(0,0,0,0.3);
+    box-shadow:0 0 1px rgba(0,0,0,0.3);
+    margin:auto;
+    padding:10px;
 }
 
 input#name
@@ -183,6 +148,7 @@ input#name
   padding:5px;
 }
 
+/*
 #search_head
 {
   margin-left:auto;
@@ -191,11 +157,12 @@ input#name
   color:#333;
   background-color:#F0FFFF;
 }
-
+*/
 #frontpage
 {
   text-align:center;
 }
+
 
 #select_box
 {
@@ -203,7 +170,8 @@ input#name
   width:220px;
 }
 
-textarea#box
+
+textarea#def_box
 {
   resize:none;
   font-size:12px;
@@ -217,7 +185,7 @@ textarea#box
   padding:5px;
 }
 
-textarea#gene_list_box
+textarea#protein_list_box
 {
   resize:none;
   font-size:15px;
@@ -231,12 +199,13 @@ textarea#gene_list_box
   padding:5px;
 }
 
+
 textarea#complex_list_box
 {
   resize:none;
   font-size:15px;
   width:390px;
-  height:100px;
+  height:250px;
   border:3px solid #ccc;
   font-family:Tahoma, sans-serif;
   background-image:url(bg.gif);
@@ -245,6 +214,15 @@ textarea#complex_list_box
   padding:5px;
 }
 
+.message { 
+	background: #CEE5F5; 
+	padding: 0.5em;
+	border: 1px 
+	solid #AACBE2; 
+}
+
+
+/*
 textarea#box2
 {
   resize:none;
@@ -265,6 +243,7 @@ textarea#box2
   margin:auto;
 }
 
+
 #gene_view
 {
 	text-align:center;
@@ -274,6 +253,7 @@ textarea#box2
 {
   min-width:200px;
 }
+*/
 
 input[type=submit]
 {

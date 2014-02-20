@@ -8,42 +8,32 @@ PRAGMA foreign_keys = OFF;
 
 -- Schema: IOBO
 BEGIN;
-CREATE TABLE "gene_info"(
+CREATE TABLE "add_protein"(
   "id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
-  "image_gene" VARCHAR(45) NOT NULL,
-  "hugo_gene" VARCHAR(45),
-  "complex_name" VARCHAR(45),
+  "protein_name" VARCHAR(45) NOT NULL,
   "genetic_alterations" VARCHAR(45),
   "conferred_capabilities" VARCHAR(45),
   "mutation_type" VARCHAR(45),
   "pathway" VARCHAR(45),
-  "definition" VARCHAR(100),
-  "dbxref" VARCHAR(45),
   "location" VARCHAR(45) NOT NULL
 );
+
 CREATE TABLE "relationships"(
   "id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
   "subject" INTEGER NOT NULL,
   "predicate" VARCHAR(45) NOT NULL,
   "object" VARCHAR(45) NOT NULL,
-  CONSTRAINT "fk_relationship_gene_info1"
-    FOREIGN KEY("subject")
-    REFERENCES "gene_info"("id")
+  "originating" VARCHAR(45) NOT NULL,
+  "pathway" VARCHAR(45)
 );
 
-CREATE TABLE "gene_list"(
+CREATE TABLE "add_complex"(
 	"id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
-	"name" VARCHAR(45) NOT NULL
-);
-
-CREATE TABLE "complex_info"(
-	"id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
-	"name" VARCHAR(45) NOT NULL,
-	"parts" VARCHAR(45) NOT NULL,
+	"complex" VARCHAR(45) NOT NULL,
 	"pathway" VARCHAR(45) NOT NULL
 );
 
-CREATE TABLE "metabolic_list"(
+CREATE TABLE "metabolite_list"(
 	"id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
 	"name" VARCHAR(45) NOT NULL
 );
@@ -53,7 +43,6 @@ CREATE TABLE "protein_list"(
 	"name" VARCHAR(45) NOT NULL
 );
 
-CREATE INDEX "relationships.fk_relationship_gene_info1" ON "relationships"("subject");
 COMMIT;
 
 

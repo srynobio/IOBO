@@ -18,6 +18,8 @@ charset: "UTF-8"
 # simple: default and very basic template engine
 # template_toolkit: TT
 
+session: "simple"
+
 template: "template_toolkit"
 engines:
     template_toolkit:
