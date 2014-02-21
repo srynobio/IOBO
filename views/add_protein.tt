@@ -24,7 +24,7 @@
       <option value="tissue_invasion_and_metastasis">Tissue invasion and metastasis</option>
       <option value="limitless_replication_potential">Limitless replication potential</option>
       <option value="sustained_angiogenesis">Sustained angiogenesis</option>
-   </select>k
+   </select>
    <br>
    Mutation Type:
    <select name="mutation_type" id="select_box">

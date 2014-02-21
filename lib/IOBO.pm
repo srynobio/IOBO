@@ -3,8 +3,6 @@ use Dancer ':syntax';
 use Dancer::Plugin::Database;
 use Dancer::Plugin::FlashMessage;
 use Template;
-#use JSON::XS;
-use Data::Dumper;
 
 our $VERSION = '0.1.3';
 
@@ -29,7 +27,6 @@ get '/' => sub {
 #---------------------------
 
 get '/add_protein' => sub {
-    #json_writer();
     template 'add_protein', { add_protein => uri_for('/protein_upload'), };
 };
 
@@ -38,7 +35,10 @@ get '/add_protein' => sub {
 post '/protein_upload' => sub {
     req_check();
     gene_insert();
-    flash message => 'protein added!';
+
+    my $protein = request->params->{protein_name};
+    flash message => "$protein added!";
+
     redirect '/add_protein';
 };
 
@@ -53,7 +53,10 @@ get '/add_complex' => sub {
 
 post '/upload_complex' => sub {
     complex_insert();
-    flash message => 'complex added!';
+
+    my $complex = request->params->{complex_parts};
+    flash message => "$complex added!";
+
     redirect '/add_complex';
 };
 
@@ -68,7 +71,7 @@ get '/add_metabolite' => sub {
 
 post '/upload_metabolite' => sub {
     list_insert('metabolite');
-    flash message => 'metabolite added!';
+    flash message => "metabolite added!";
     redirect '/add_metabolite';
 };
 
@@ -90,7 +93,6 @@ post '/upload_relationship' => sub {
 #---------------------------
 
 get '/delete_relationship' => sub {
-    #json_writer();
     template 'delete_relationship', { delete_relationship => uri_for('/delete'), };
 };
 
@@ -134,6 +136,7 @@ sub complex_insert {
     my @parts = split/\s+/, $post->{'complex_parts'};
     my @s_parts = sort @parts;
     my $c_parts = join(":", @s_parts);
+    $c_parts =~ s/^://;
 
     database->quick_insert(
         'add_complex',
