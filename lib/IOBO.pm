@@ -237,7 +237,7 @@ sub relationship_insert {
 
     my $post = request->params;
 
-    foreach my $rel ( keys $post ) {
+    foreach my $rel ( keys %{$post} ) {
         if ( $rel =~ /relationship_gene(\d+)/ ) {
             my $number = $1;
             next unless $post->{$rel};
