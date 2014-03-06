@@ -4,7 +4,7 @@ use Dancer::Plugin::Database;
 use Dancer::Plugin::FlashMessage;
 use Template;
 
-our $VERSION = '0.1.3';
+our $VERSION = '0.1.4';
 
 #---------------------------
 # hooks
@@ -45,8 +45,7 @@ post '/protein_upload' => sub {
 #---------------------------
 
 get '/add_complex' => sub {
-    template 'add_complex',
-      { add_complex_list => uri_for('/upload_complex'), };
+    template 'add_complex', { add_complex_list => uri_for('/upload_complex'), };
 };
 
 #---------------------------
@@ -79,7 +78,7 @@ post '/upload_metabolite' => sub {
 
 get '/add_relationship' => sub {
     template 'add_relationship',
-    { relationship_info => uri_for('/upload_relationship') };
+      { relationship_info => uri_for('/upload_relationship') };
 };
 
 #---------------------------
@@ -93,7 +92,8 @@ post '/upload_relationship' => sub {
 #---------------------------
 
 get '/delete_relationship' => sub {
-    template 'delete_relationship', { delete_relationship => uri_for('/delete'), };
+    template 'delete_relationship',
+      { delete_relationship => uri_for('/delete'), };
 };
 
 #---------------------------
@@ -114,12 +114,12 @@ sub delete_relationship {
     my $select = database->quick_select(
         'relationships',
         { subject => $post->{'image_gene'} },
-        { pathway    => $post->{'pathway'} },
+        { pathway => $post->{'pathway'} },
     );
 
     # delete from gene_info and relationships table
     my $id = $select->{'id'};
-    database->quick_delete( 'relationships', { id  => $id } );
+    database->quick_delete( 'relationships', { id => $id } );
     return;
 }
 
@@ -129,13 +129,13 @@ sub complex_insert {
 
     my $post = request->params;
 
-    unless ( $post->{'complex_parts'} and $post->{'complex_pathway'} ){
+    unless ( $post->{'complex_parts'} and $post->{'complex_pathway'} ) {
         halt("Required: Complex parts and Pathway required");
     }
 
-    my @parts = split/\s+/, $post->{'complex_parts'};
+    my @parts   = split /\s+/, $post->{'complex_parts'};
     my @s_parts = sort @parts;
-    my $c_parts = join(":", @s_parts);
+    my $c_parts = join( ":", @s_parts );
     $c_parts =~ s/^://;
 
     database->quick_insert(
@@ -178,6 +178,7 @@ sub list_insert {
 sub gene_insert {
     my $post = request->params;
 
+    ## to accept location info
     my $location = $post->{'location'};
     my @local;
 
@@ -190,13 +191,38 @@ sub gene_insert {
       ? $place = shift @local
       : $place = join( ":", @local );
 
+    ## to accept alteration info
+    my $alteration = $post->{'genetic_alterations'};
+    my @alts;
+
+    ( ref $alteration eq 'ARRAY' )
+      ? @alts = @{$alteration}
+      : push @alts, $alteration;
+
+    my $gen_alt;
+    ( scalar @alts < 1 )
+      ? $gen_alt = shift @alts
+      : $gen_alt = join( ":", @alts );
+
+    ## to accept conferred info
+    my $conferred = $post->{'conferred_capabilities'}, my @confs;
+
+    ( ref $conferred eq 'ARRAY' )
+      ? @confs = @{$conferred}
+      : push @confs, $conferred;
+
+    my $conf_cap;
+    ( scalar @confs < 1 )
+      ? $conf_cap = shift @confs
+      : $conf_cap = join( ":", @confs );
+
     # Node (gene info)
     database->quick_insert(
         'add_protein',
         {
             protein_name           => $post->{'protein_name'},
-            genetic_alterations    => $post->{'genetic_alterations'},
-            conferred_capabilities => $post->{'conferred_capabilities'},
+            genetic_alterations    => $gen_alt,
+            conferred_capabilities => $conf_cap,
             mutation_type          => $post->{'mutation_type'},
             pathway                => $post->{'pathway'},
             location               => $place,
@@ -211,19 +237,19 @@ sub relationship_insert {
 
     my $post = request->params;
 
-    foreach my $rel (keys $post ) {
-        if ($rel =~ /relationship_gene(\d+)/ ) {
+    foreach my $rel ( keys $post ) {
+        if ( $rel =~ /relationship_gene(\d+)/ ) {
             my $number = $1;
             next unless $post->{$rel};
 
             database->quick_insert(
                 'relationships',
                 {
-                    subject   => $post->{'image_item'},
-                    predicate => $post->{'relationship_type'}[$number - 1],
-                    object    => $post->{$rel},
+                    subject     => $post->{'image_item'},
+                    predicate   => $post->{'relationship_type'}[ $number - 1 ],
+                    object      => $post->{$rel},
                     originating => $post->{'type'},
-                    pathway => $post->{'pathway'},
+                    pathway     => $post->{'pathway'},
                 }
             );
         }
@@ -241,7 +267,7 @@ sub req_check {
         and $post->{'pathway'}
         and $post->{'location'} )
     {
-        halt("Required: Protein name, Pathway and location");
+        halt("Required: Location");
     }
     return;
 }

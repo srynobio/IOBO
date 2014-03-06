@@ -50,7 +50,7 @@ h1
   background:0;
   background-color:#F0FFFF;
   width:410px;
-  height:600px;
+  height:950px;
   font-family:Tahoma, Geneva, sans-serif;
   font-size:12px;
   line-height:24px;
@@ -148,16 +148,7 @@ input#name
   padding:5px;
 }
 
-/*
-#search_head
-{
-  margin-left:auto;
-  margin-right:auto;
-  width:20%;
-  color:#333;
-  background-color:#F0FFFF;
-}
-*/
+
 #frontpage
 {
   text-align:center;
@@ -220,40 +211,6 @@ textarea#complex_list_box
 	border: 1px 
 	solid #AACBE2; 
 }
-
-
-/*
-textarea#box2
-{
-  resize:none;
-  font-size:12px;
-  width:385px;
-  height:px;
-  border:3px solid #ccc;
-  font-family:Tahoma, sans-serif;
-  background-image:url(bg.gif);
-  background-position:bottom right;
-  background-repeat:no-repeat;
-  padding:5px;
-}
-
-#gse .gsc-search-box
-{
-  width:1000px;
-  margin:auto;
-}
-
-
-#gene_view
-{
-	text-align:center;
-}
-
-#wrap
-{
-  min-width:200px;
-}
-*/
 
 input[type=submit]
 {

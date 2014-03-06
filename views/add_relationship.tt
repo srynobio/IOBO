@@ -1,20 +1,18 @@
 <!-- Area for the add protein form -->
 <br>
 <form id="relationship_info" action="[% relationship_info %]" method="POST">
-
-
-
    <h2>Image Name:</h2>
    Protein/Complex/Metabolite Name:* <br>
    <input type="text" name="image_item" id="genes" required>
+   <br>
    Originating:
    <select name="type" id="select_box" name="name_type" required>
-           <option value=""></option>
-           <option value="protein">Protein</option>
-           <option value="metabolite">Metabolite</option>
-           <option value="complex">Complex</option>
-	</select>   
-</br>
+      <option value=""></option>
+      <option value="protein">Protein</option>
+      <option value="metabolite">Metabolite</option>
+      <option value="complex">Complex</option>
+   </select>
+   </br>
    Pathway:
    <select name="pathway" id="select_box" name="relationship_pathway" required>
       <option value=""></option>
@@ -33,13 +31,6 @@
    </select>
    <br>   
    <br>
-
-
-
-
-
-
-
    <h2>Relationships:</h2>
    <div id='one' class='clonedSection'>
       <div style='margin-bottom:4px;' class='clonedInput'>
@@ -58,7 +49,6 @@
          </select>
       </div>
    </div>
-   
    <br>
    <div id='two' class='clonedSection'>
       <div style='margin-bottom:4px;' class='clonedInput'>

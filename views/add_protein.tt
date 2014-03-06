@@ -3,28 +3,35 @@
    <h2>Add Protein</h2>
    Protein:* <br>
    <input type="text" name="protein_name" id="protein" required>
+   <br>   
+   Genetic Alterations:<br>
+   <input type="checkbox" name="genetic_alterations" value="point_mutation"> Point mutation<br>
+   <input type="checkbox" name="genetic_alterations" value="amplification"> Amplification<br>
+   <input type="checkbox" name="genetic_alterations" value="translocation"> Translocation<br>
+   <input type="checkbox" name="genetic_alterations" value="deletion"> Deletion<br>
+   <input type="checkbox" name="genetic_alterations" value="viral_infection"> Viral infection<br>
+   <input type="checkbox" name="genetic_alterations" value="increased_expression"> Increased expression<br>
    <br>
-   Genetic Alterations:
-   <select name="genetic_alterations" id="select_box">
-      <option value=""></option>
-      <option value="point_mutation">point mutation</option>
-      <option value="amplification">amplification</option>
-      <option value="translocation">translocation</option>
-      <option value="deletion">deletion</option>
-      <option value="viral_infection">viral infection</option>
-      <option value="increased_expression">increased expression</option>
-   </select>
+   Conferred Capabilites:<br>
+   <input type="checkbox" name="conferred_capabilities" value="evading_apoptosis"> evading_apoptosis<br>
+   <input type="checkbox" name="conferred_capabilities" value="self_sufficiency_in_growth_signals"> Self sufficiency in growth signals<br>
+   <input type="checkbox" name="conferred_capabilities" value="insensitivity_to_anti_growth_signals"> Insensitivity to anti growth signals<br>
+   <input type="checkbox" name="conferred_capabilities" value="tissue_invasion_and_metastasis"> Tissue invasion and metastasis<br>
+   <input type="checkbox" name="conferred_capabilities" value="limitless_replication_potential"> Limitless replication potential<br>
+   <input type="checkbox" name="conferred_capabilities" value="sustained_angiogenesis"> Sustained angiogenesis<br>
    <br>
-   Conferred Capabilites:
-   <select name="conferred_capabilities" id="select_box">
-      <option value=""></option>
-      <option value="evading_apoptosis">Evading apoptosis</option>
-      <option value="self_sufficiency_in_growth_signals">Self-sufficiency in growth signals</option>
-      <option value="insensitivity_to_anti_growth_signals">Insensitivity to anti-growth signals</option>
-      <option value="tissue_invasion_and_metastasis">Tissue invasion and metastasis</option>
-      <option value="limitless_replication_potential">Limitless replication potential</option>
-      <option value="sustained_angiogenesis">Sustained angiogenesis</option>
-   </select>
+   Location:*<br>
+   <input type="checkbox" name="location" value="nucleolus">  Nucleolus<br>
+   <input type="checkbox" name="location" value="nucleoplasm">  Nucleoplasm<br>
+   <input type="checkbox" name="location" value="nuclear_envelope">  Nuclear Envelope<br>
+   <input type="checkbox" name="location" value="cell_membrane">  Cell Membrane<br>
+   <input type="checkbox" name="location" value="cytosol">  Cytosol<br>
+   <input type="checkbox" name="location" value="mitochondria">  Mitochondria<br>
+   <input type="checkbox" name="location" value="mitochondria_inner_membrane_space">  Mitochondria Inner Membrane Space<br>
+   <input type="checkbox" name="location" value="mitochondria_inner_membrane">  Mitochondria Inner Membrane <br>
+   <input type="checkbox" name="location" value="dna_binding">  DNA Binding<br>
+   <input type="checkbox" name="location" value="extracellular">  Extracellular<br>
+   <input type="checkbox" name="location" value="transmembrane">  Transmembrane<br>
    <br>
    Mutation Type:
    <select name="mutation_type" id="select_box">
@@ -51,20 +58,5 @@
    </select>
    <br>
    <br>
-   Location:*<br>
-   <input type="checkbox" name="location" value="nucleolus">  Nucleolus<br>
-   <input type="checkbox" name="location" value="nucleoplasm">  Nucleoplasm<br>
-   <input type="checkbox" name="location" value="nuclear_envelope">  Nuclear Envelope<br>
-   <input type="checkbox" name="location" value="cell_membrane">  Cell Membrane<br>
-   <input type="checkbox" name="location" value="cytosol">  Cytosol<br>
-   <input type="checkbox" name="location" value="mitochondria">  Mitochondria<br>
-   <input type="checkbox" name="location" value="mitochondria_inner_membrane_space">  Mitochondria Inner Membrane Space<br>
-   <input type="checkbox" name="location" value="mitochondria_inner_membrane">  Mitochondria Inner Membrane <br>
-   <input type="checkbox" name="location" value="dna_binding">  DNA Binding<br>
-   <input type="checkbox" name="location" value="extracellular">  Extracellular<br>
-   <input type="checkbox" name="location" value="transmembrane">  Transmembrane<br>
-   <br>
-
    <input type="submit" value="Submit">
-
 </form>
