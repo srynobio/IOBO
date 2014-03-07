@@ -130,7 +130,7 @@ sub complex_insert {
     my $post = request->params;
 
     unless ( $post->{'complex_parts'} and $post->{'complex_pathway'} ) {
-        halt("Required: Complex parts and Pathway required");
+        halt("Complex parts and Pathway required!");
     }
 
     my @parts   = split /\s+/, $post->{'complex_parts'};
@@ -267,7 +267,7 @@ sub req_check {
         and $post->{'pathway'}
         and $post->{'location'} )
     {
-        halt("Required: Location");
+        halt("Gene, Location and Pathway Required!");
     }
     return;
 }
