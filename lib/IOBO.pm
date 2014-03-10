@@ -4,7 +4,10 @@ use Dancer::Plugin::Database;
 use Dancer::Plugin::FlashMessage;
 use Template;
 
-our $VERSION = '0.1.4';
+our $VERSION = '0.1.5';
+
+
+use Data::Dumper;
 
 #---------------------------
 # hooks
@@ -91,6 +94,20 @@ post '/upload_relationship' => sub {
 
 #---------------------------
 
+get '/add_comment' => sub {
+    template 'add_comment',
+        { add_comment => uri_for('/upload_comment') };
+};
+
+#---------------------------
+
+post '/upload_comment' => sub {
+    comment_insert();
+    redirect '/add_comment';
+};
+
+#---------------------------
+
 get '/delete_relationship' => sub {
     template 'delete_relationship',
       { delete_relationship => uri_for('/delete'), };
@@ -120,6 +137,26 @@ sub delete_relationship {
     # delete from gene_info and relationships table
     my $id = $select->{'id'};
     database->quick_delete( 'relationships', { id => $id } );
+    return;
+}
+
+#---------------------------
+
+sub comment_insert {
+    my $post = request->params;
+
+    # remove any whitespace.
+    $post->{'comment_list'} =~ s/^\s+|\s+$//g;
+    $post->{'comment_list'} =~ s/\R/ /g;
+
+    database->quick_insert(
+        'add_comment',
+        {
+            comment     => $post->{'comment_list'},
+            pathway     => $post->{'pathway'},
+            originating => $post->{'type'},
+        }
+    );
     return;
 }
 

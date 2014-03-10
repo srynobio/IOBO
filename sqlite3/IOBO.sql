@@ -43,6 +43,13 @@ CREATE TABLE "protein_list"(
 	"name" VARCHAR(45) NOT NULL
 );
 
+CREATE TABLE "add_comment"(
+	"id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+	"comment" VARCHAR(100) NOT NULL,
+	"pathway" VARCHAR(45),
+	"entity" VARCHAR(45),
+	"originating" VARCHAR(45) NOT NULL
+);
 COMMIT;
 
 

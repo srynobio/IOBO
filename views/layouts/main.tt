@@ -9,7 +9,8 @@
       <a href="../add_protein">Add Protein</a>&nbsp
       <a href="../add_complex">Add Complex</a>&nbsp
       <a href="../add_metabolite">Add Metabolite</a>&nbsp      
-      <a href="../add_relationship">Add Relationship</a>&nbsp      
+      <a href="../add_relationship">Add Relationship</a>&nbsp
+      <a href="../add_comment">Add Comment</a>&nbsp            
       <a href="../delete_relationship">Delete Relationship</a>&nbsp
       <a href="http://www.garlandscience.com/res/9780815342199/supplementary/Pathways_in_Human_Cancer.pdf" target="_blank">Pathway In Human Cancer PDF</a>&nbsp
    </div>
