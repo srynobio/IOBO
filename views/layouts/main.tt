@@ -7,6 +7,7 @@
       </h2>
       <h2>Welcome to Image OBO | Images to Ontologies.</h2>
       <a href="../add_protein">Add Protein</a>&nbsp
+      <a href="../add_hugo">Add Hugo Annotation</a>&nbsp
       <a href="../add_complex">Add Complex</a>&nbsp
       <a href="../add_metabolite">Add Metabolite</a>&nbsp      
       <a href="../add_relationship">Add Relationship</a>&nbsp

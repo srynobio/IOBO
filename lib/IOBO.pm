@@ -4,6 +4,8 @@ use Dancer::Plugin::Database;
 use Dancer::Plugin::FlashMessage;
 use Template;
 
+use Data::Dumper;
+
 our $VERSION = '0.1.5';
 
 
@@ -79,6 +81,20 @@ post '/upload_metabolite' => sub {
 
 #---------------------------
 
+get '/add_hugo' => sub {
+    template 'add_hugo',
+        { add_hugo_annotation => uri_for('/upload_annotation') };
+};
+
+#---------------------------
+
+post '/upload_annotation' => sub {
+    annotation_insert();
+    redirect '/add_hugo';
+};
+
+#---------------------------
+
 get '/add_relationship' => sub {
     template 'add_relationship',
       { relationship_info => uri_for('/upload_relationship') };
@@ -123,6 +139,28 @@ post '/delete' => sub {
 
 #---------------------------
 # IOBO subs
+#---------------------------
+
+sub annotation_insert {
+    my $post = request->params;
+
+    $post->{'comment_list'} =~ s/^\s+|\s+$//g;
+    $post->{'hugo_list'}    =~ s/^\s+|\s+$//g;
+    $post->{'comment_list'} =~ s/\R/ /g;
+    $post->{'hugo_list'}    =~ s/\R/:/g;
+
+   database->quick_insert(
+        'add_hugo_annotation',
+        {
+            protein_name           => $post->{'protein_name'},
+            hugo_list              => $post->{'hugo_list'},
+            comment_list           => $post->{'comment_list'},
+            pathway                => $post->{'pathway'},
+        }
+    );
+    return;
+}
+
 #---------------------------
 
 sub delete_relationship {

@@ -1,0 +1,38 @@
+<br>
+<form id="add_protein" action="[% add_hugo_annotation %]" method="POST">
+   <h2>Add Annotation</h2>
+   Image Protein:* <br>
+   <input type="text" name="protein_name" id="protein" required>
+   <br> 
+
+   <form id="gene_info" method="POST" action="[% add_metabolite_list %]">
+      <br>
+      Enter list of HUGO annotations:
+      <br>
+      <textarea id="protein_list_box" name="hugo_list">
+      </textarea><br>
+
+      <br>
+      Enter comment:
+      <br>
+      <textarea id="complex_list_box" name="comment_list">
+      </textarea>
+      <br>
+      Pathway:*
+      <select name="pathway" id="select_box" required>
+         <option value=""></option>
+         <option value="autophagy">Autophagy</option>
+         <option value="akt_signaling">AKt signaling</option>
+         <option value="warburg_effect">Warburg Effect</option>
+         <option value="death_receptor/NFkB_signaling">Death receptor/NFkB signaling</option>
+         <option value="notch_signaling">Notch signaling</option>
+         <option value="hedgehog_signaling">Hedgehog signaling</option>
+         <option value="epigenetic_signaling">Epigenetic signaling</option>
+         <option value="ras_signaling">Ras signaling</option>
+         <option value="gpcr_signaling">GPCR signaling</option>
+         <option value="wnt_signaling">Wnt signaling</option>
+         <option value="hippo_signaling">Hippo signaling</option>
+         <option value="tgfb_signaling">TGFb signaling</option>
+      </select>
+      <input type="submit" value="Submit" />
+   </form>
