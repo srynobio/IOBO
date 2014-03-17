@@ -27,6 +27,14 @@ CREATE TABLE "relationships"(
   "pathway" VARCHAR(45)
 );
 
+CREATE TABLE add_hugo_annotation(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+    "protein_name" VARCHAR(45) NOT NULL,
+    "comment_list" VARCHAR(100) NOT NULL,
+    "hugo_list" VARCHAR(100) NOT NULL,
+    "pathway" VARCHAR(45)
+);
+
 CREATE TABLE "add_complex"(
 	"id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
 	"complex" VARCHAR(45) NOT NULL,
