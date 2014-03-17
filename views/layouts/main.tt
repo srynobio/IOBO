@@ -32,9 +32,6 @@
          // http://jqueryui.com/autocomplete/
          $(function() {
             var availableTags = [
-            "S6K",
-            "GSK-3",
-            "RAPTOR:mTOR",
             ];
             $( "#genes" ).autocomplete({
               source: availableTags

@@ -4,12 +4,7 @@ use Dancer::Plugin::Database;
 use Dancer::Plugin::FlashMessage;
 use Template;
 
-use Data::Dumper;
-
 our $VERSION = '0.1.5';
-
-
-use Data::Dumper;
 
 #---------------------------
 # hooks
